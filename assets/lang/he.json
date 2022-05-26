@@ -1,0 +1,352 @@
+{
+    "appName":"Team Center",
+    "loginScreen":"Login Screen",
+    "companyName":"Build by shtibel.com",
+    "welcome":"Welcome to ",
+    "loginWithPhone":"התחבר עם מספר הטלפון הנייד שלך",
+    "countryCode":"קידומת מדינה",
+    "phoneNumber":"מספר טלפון",
+    "next":"המשך",
+    "byAcceptingText":"אני מאשר את תנאי השימוש של",
+    "terms":"האפליקציה",
+    "enterVerification":"הזן את קוד האימות שנשלח אל",
+    "changePhoneNumber":"שנה את מספר הטלפון",
+    "sentAgain":"שלח שוב",
+    "didNotGetTheCode":"לא קיבלת את הקוד",
+    "nextGame":"המשחקים הבאים",
+    "nextTraining":"אימונים",
+    "players":"שחקנים",
+    "logout":"התנתק",
+    "myprofile":"הפרופיל שלי",
+    "Training":"אימונים",
+    "lastGame":"משחק אחרון",
+
+    "Games":"משחקים",
+    "Tests":"מבדקים",
+    "Attendance":"נוכחות",
+    "Statistics":"סטטיסטיקה",
+    "tc":"תנאי שימוש",
+    "allRights":"© All rights reserved to Team Center 2000-2021",
+    "Version":"גירסה",
+
+    "Name":"שם",
+    "Phone":"טלפון",
+    "Email":"אמייל",
+    "Country":"ארץ",
+    "City":"עיר",
+    "Address":"כתובת",
+    "appLanguage":"שפת אפליקציה",
+    "New":"חדש",
+    "Search":"חיפוש",
+    "thisFieldRequired":"שדה זה הוא שדה חובה",
+    "thisNumberDoesNotExits":"מספר הטלפון הזה לא קיים במערכת",
+
+    "Back":"חזרה",
+    "Shirt":"חולצה",
+    "Height":"גובה",
+    "Weight":"משקל",
+    "Captain":"קפטן",
+    "Fat":"אחוזי שומן",
+    "Age":"גיל",
+
+    "Muscle":"מסת שריר",
+    "Foot":"רגל",
+    "Profile":"פרופיל",
+    "Edit":"ערוך",
+    "Abilities":"יכולות",
+    "GamesTrainings":"משחקים ואימונים",
+
+    "Physical":"פיזיות",
+    "Technical":"טכני",
+    "Tactical":"טקטי",
+    "personalGoal":"מטרות ויעדים אישיים",
+    "Speed":"מהירות",
+
+    "Agility":"זריזות",
+    "burstingPower":"כח מתפרץ",
+    "Flexibility":"גמישות",
+    "Endurance":"סיבולת",
+    "Aggressive":"אגרסיביות",
+    "Mental":"מנטלית",
+    "specialAbilities":"יכולות מיוחדות",
+
+    "trainingAttendance":"נוכחות באימונים",
+    "More":"עוד",
+    "Week":"שבוע",
+    "Month":"חודש",
+    "Season":"עונה",
+
+    "Min":"דקות",
+    "Goals":"שערים",
+    "Assists":"בישולים",
+    "Steals":"חטיפות",
+    "Rescue":"חילוצים",
+    "Foul":"עבירות",
+    "BallLoss":"איבודים",
+    "Yellow":"כרטיס צהוב",
+    "Red":"כרטיס אדום",
+
+    "Average":"ממוצע",
+    "Best":"הטוב ביותר",
+    "BirthDate":"תאריך לידה",
+    "position":"עמדה",
+    "changeImage":"שנה תמונה",
+    "Done":"בוצע",
+    "Delete":"מחק",
+    "No":"לא",
+    "Yes":"כן",
+    "Newtraining":"אימון חדש",
+    "Date":"תאריך",
+    "Fromtimeuntiltime":"משעה עד שעה",
+    "Trainingprogram":"תוכנית האימון",
+    "addNew":"הוסף חדש",
+    "Fromtime":"משעה",
+    "Untiltime":"עד שעה",
+    "Staffmember":"איש צוות",
+    "Description":"תיאור",
+    "uploadImage":"העלאת תמונה",
+    "Selectsource":"בחר מקור",
+    "Fromcamera":"מהמצלמה",
+    "Fromlocalgallery":"מגלריית התמונות",
+    "Stats":"סטטיסטיקה",
+    "GameStats":"סטטיסטיקות משחקים",
+    "NewGame":"משחק חדש",
+    "Hour":"שעה",
+    "Rival":"יריב",
+
+    "League":"ליגה",
+    "Cup":"גביע",
+    "Friendly":"ידידות",
+    "Homegame":"משחק בית",
+    "Awaygame":"משחק חוץ",
+    "Keygame":"משחק מפתח",
+    "Gameplan":"תוכנית משחק",
+    "Addplayerobjective":"הוסף מטרה לשחקן",
+    "GameLineup":"הרכב משחק",
+    "Selectlineup":"בחר מערך",
+    "Selectplayers":"בחר שחקנים",
+    "Addobjective":"הוסף מטרה",
+    "Playerobjectives":"מטרות השחקן",
+    "Home":"בית",
+    "Away":"חוץ",
+
+    "All":"את כל",
+    "Late":"איחר",
+    "Attended":"נכח",
+    "Defensivesummary":"סיכום הגנה",
+    "Offensivesummary":"סיכום התקפה",
+    "Generalsummary":"סיכום כללי",
+
+    "Kick":"בעיטה",
+    "Delivery":"מסירה",
+    "Lifting":"הרמה",
+    "Stop":"עצירת כדור",
+    "Balltransport":"דריבל",
+    "Ballcontrol":"שליטה בכדור",
+    "Tackle":"תיקול",
+    "Movement":"תנועה",
+    "Decisionmaking":"קבלת החלטות",
+    "Gameunderstand":"הבנת משחק",
+    "Spaceorientation":"התמצאות במרחב",
+    "Location":"מיקום",
+    "Pendelkick":"בעיטות עונשין",
+    "Freekick":"בעיטות חופשיות",
+    "Cornerkick":"בעיטות קרן",
+    "Outserving":"מסירות חוץ",
+    "Leader":"לידר",
+    "Assist":"אסיסטים",
+    "send":"לִשְׁלוֹחַ",
+    "Improvement":"סיכום",
+    "Conservation":"הערות לקבוצה",
+    "Summary":"הערות לשחקנים",
+    "Addfile":"הוסף קובץ",
+    "Newresults":"תוצאות חדשות",
+    "Newtest":"מבדק חדש",
+    "goodResultType":"סוג תוצאה טובה",
+    "Unittype":"יחידת מדידה",
+    "Miss":"החסיר",
+    "Share":"לַחֲלוֹק",
+    "Filter":"לְסַנֵן",
+    "Addplayers":"הוסף שחקנים",
+    "addGame":"הוסף משחק",
+    "WIN":"ניצחון",
+    "LOSS":"הפסד",
+    "TIE":"תיקו",
+    "From_time":"מזמן",
+    "Until_time":"עד הזמן",
+    "update_game":"עריכת משחק",
+    "first_name":"שם פרטי",
+    "last_name":"שם משפחה",
+    "logout_msg":"האם אתה בטוח שברצונך להתנתק מהאפליקציה?",
+    "select_team":"בחר קבוצה",
+    "new_training_plan":"תוכנית אימונים חדשה",
+    "training_plan":"תוכנית אימון",
+    "delete_msg":"האם אתה בטוח שברצונך למחוק רשומה זו ?",
+    "select_position":"בחר עמדה",
+    "no_data_found":"לא נמצאו נתונים",
+    "select_staff_member":"בחר איש צוות",
+    "Att":"נכח",
+    "Total":"סה\"כ",
+    "Last":"מבדק אחרון",
+    "edit_training_plan":"עריכת תוכנית אימונים",
+    "matches":"משחקים",
+    "scored":"כיבושים",
+    "conceded":"ספיגות",
+    "Gamestatistics":"סטטיסטיקות משחקים",
+    "removeMsg":"האם אתה בטוח שברצונך למחוק רשומה זו ?",
+    "serverError":"אירעה שגיאת שרת עם",
+    "add_training":"הוסף אימון",
+    "Select_foot":"בחר רגל",
+    "part_name":"חלק אימון",
+    "date_error":"אנא הזן תאריך",
+    "time_error":"אנא הזן שעה",
+    "rivel_error":"אנא הזן יריב",
+    "Training_attandence":"נוכחות אימונים",
+    "game_attandence":"נוכחות משחקים",
+    "club_comments":"הערות הנהלה",
+    "Update_application":"אנא עדכן את האפליקציה",
+    "Your_application":"נמצאה גירסה חדשה יותר עבור האפליקציה",
+    "Update":"עדכן",
+    "group_msg":"לא נמצאו קבוצות שהוקצו עבורך",
+    "drawing_board":"צייר",
+    "my_drawing_board":"תמונות מהצייר",
+    "save":"שמור",
+    "rotate":"סובב",
+    "edit_number":"ערוך מספר",
+    "drawing_baord_close":"האם אתה בטוח שברצונך לצאת מהצייר בלי לשמור את הציור ?",
+    "drawing_name":"שם ציור",
+    "Enter_number":"הזן מספר",
+    "Cancel":"סגור",
+    "Rename":"שינוי שם",
+    "ave":"ממוצע",
+    "eraser":"מַחַק",
+    "management_instructions":"הוראות הנהלה",
+    "practice_filed":"מגרש",
+    "create_new_drawing":"ציור חדש",
+    "part_time":"זמן עבור חלק האימון",
+    "training_intensity":"קצב עבור חלק האימון",
+    "games_instruction":"הוראות משחק",
+    "practice_instruction":"הוראות אימון",
+    "share_with_the_team":"שתף עם הצוות",
+    "From":"מאת",
+    "professional_knowledge":"מידע מקצועי",
+    "Latest":"חדשים",
+    "select_category":"בחר קטגוריה",
+    "from_management_instructions":"מהוראות הנהלה",
+    "from_professional_knowledge":"ממידע מקצועי",
+    "select_line_up":"בחר הרכב",
+    "dont_have_account":"אין לך חשבון איתנו?",
+    "contact_us":"צור קשר !",
+    "message":"הוֹדָעָה",
+    "team_center":"מרכז הצוות",
+    "account":"חשבון",
+    "myObjective":"היעדים שלי",
+    "myAbilities":"היכולות שלי",
+    "feedbacks":"משובים",
+    "messages":"הודעות",
+    "medical":"רפואי",
+    "nextGameObjectives":"יעדי המשחק הבא",
+    "close":"סגור",
+    "myGameObjectives":"היעדים שלי למשחק",
+    "myStatsArea":"הסטטיסטיקה שלי"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+   
+    
+
+
+
+    
+
+
+
+
+
+}

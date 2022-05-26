@@ -1,0 +1,3 @@
+class GameCallBackInterface {
+  void onUpdate() {}
+}

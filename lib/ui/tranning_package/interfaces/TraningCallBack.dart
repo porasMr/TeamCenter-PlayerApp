@@ -1,0 +1,3 @@
+class TraningCallBackInterface {
+  void onUpdate() {}
+}

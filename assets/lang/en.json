@@ -1,0 +1,374 @@
+{
+    "appName":"Team Center",
+    "loginScreen":"Login Screen",
+    "companyName":"Build by shtibel.com",
+    "welcome":"Welcome to ",
+    "loginWithPhone":"Login with your Phone number",
+    "countryCode":"Country code",
+    "phoneNumber":"Phone number",
+    "next":"Next",
+    "byAcceptingText":"By continuing, you agree to accept our",
+    "terms":"Terms and conditions",
+    "enterVerification":"Enter the verification code Sent to",
+    "changePhoneNumber":"Change phone number",
+    "sentAgain":"Send again",
+    "didNotGetTheCode":"Did not get the code ?",
+    "nextGame":"Next Game",
+    "nextTraining":"Team Practices",
+    "players":"Players",
+    "logout":"Logout",
+    "myprofile":"My Profile",
+    "Training":"Practice",
+    "lastGame":"Last game",
+    "Games":"Games",
+    "Tests":"Tests",
+    "Attendance":"Attendance",
+    "Statistics":"Statistics",
+    "tc":"Terms and conditions, Privacy policy",
+    "allRights":"© All rights reserved to Team Center 2000-2021",
+    "Version":"Version",
+    "Name":"Name",
+    "Phone":"Phone",
+    "Email":"Email",
+    "Country":"Country",
+    "City":"City",
+    "Address":"Address",
+    "appLanguage":"App Language",
+    "New":"New",
+    "Search":"Search",
+    "thisFieldRequired":"This field is required",
+    "thisNumberDoesNotExits":"This number doesn't exists in the system",
+    
+    "Back":"Back",
+    "Shirt":"Shirt",
+    "Height":"Height",
+    "Weight":"Weight",
+    "Captain":"Captain",
+    "Fat":"Fat",
+    "Age":"Age",
+
+    "Muscle":"Muscle",
+    "Foot":"Foot",
+    "Profile":"Profile",
+    "Edit":"Edit",
+    "Abilities":"Abilities",
+    "GamesTrainings":"Games & Practices",
+
+    "Physical":"Physical",
+    "Technical":"Technical",
+    "Tactical":"Tactical",
+    "personalGoal":"Personal goals and objectives",
+    "Agility":"Agility",
+    "Speed":"Speed",
+
+    "burstingPower":"Bursting power",
+    "Flexibility":"Flexibility",
+    "Endurance":"Endurance",
+    "Aggressive":"Aggressive",
+    "Mental":"Mental",
+    "specialAbilities":"Special abilities",
+
+
+    "trainingAttendance":"Practice attendance",
+    "More":"More",
+    "Week":"Week",
+    "Month":"Month",
+    "Season":"Season",
+
+    "Min":"Min",
+    "Goals":"Goals",
+    "Assists":"Assists",
+    "Steals":"Steals",
+    "Rescue":"Rescue",
+    "Foul":"Foul",
+    "BallLoss":"Ball loss",
+    "Yellow":"Yellow",
+    "Red":"Red",
+
+    "Average":"Average",
+    "Best":"Best",
+    "BirthDate":"Birth date",
+    "position":"Position",
+    "changeImage":"Change image",
+    "Done":"Done",
+    "Delete":"Delete",
+    "No":"No",
+    "Yes":"Yes",
+    "Newtraining":"New Practice",
+    "Date":"Date",
+    "Fromtimeuntiltime":"From time until time",
+    "Trainingprogram":"Practice program",
+    "addNew":"Add new",
+    "Fromtime":"From time",
+    "Untiltime":"Until time",
+    "Staffmember":"Staff member",
+    "Description":"Description",
+    "uploadImage":"Upload image",
+    "Selectsource":"Select source",
+    "Fromcamera":"From camera",
+    "Fromlocalgallery":"From local gallery",
+    "Stats":"Stats",
+    "GameStats":"Game Stats",
+    "NewGame":"New game",
+    "Hour":"Hour",
+    "Rival":"Rival",
+    "League":"League",
+    "Cup":"Cup",
+    "Friendly":"Friendly",
+    "Homegame":"Home game",
+    "Awaygame":"Away game",
+    "Keygame":"Key game",
+    "Gameplan":"Game plan",
+    "Addplayerobjective":"Add player objective",
+    "GameLineup":"Game Lineup",
+    "Selectlineup":"Select lineup",
+    "Selectplayers":"Select players",
+    "Addobjective":"Add objective",
+    "Playerobjectives":"Player objectives",
+    "Home":"Home",
+    "Away":"Away",
+
+    "All":"All",
+    "Late":"Late",
+    "Att":"Att",
+
+    "Attended":"Attended",
+    "Defensivesummary":"Defensive summary",
+    "Offensivesummary":"Offensive summary",
+    "Generalsummary":"General summary",
+    "Kick":"Kick",
+    "Delivery":"Delivery",
+    "Lifting":"crossing",
+    "Stop":"Stop",
+    "Balltransport":"Ball transport",
+    "Ballcontrol":"Ball control",
+    "Tackle":"Tackle",
+    "Movement":"Movement",
+    "Decisionmaking":"Decision making",
+    "Gameunderstand":"Game understand",
+    "Spaceorientation":"Space orientation",
+    "Location":"Location",
+    "Pendelkick":"Pendel kick",
+    "Freekick":"Free kick",
+    "Cornerkick":"Corner kick",
+    "Outserving":"Out serving",
+    "Leader":"Leader",
+    "Assist":"Assist",
+    "send":"Send",
+    "Improvement":"Summary",
+    "Conservation":"Team notes",
+    "Summary":"Players notes",
+    "Addfile":"Add file",
+    "Newresults":"New results",
+    "Newtest":"New test",
+    "goodResultType":"Good result type",
+    "Unittype":"Unit type",
+    "Miss":"Miss",
+    "Share":"Share",
+    "Filter":"Filter",
+    "Addplayers":"Add players",
+    "addGame":"Add game",
+    "WIN":"WIN",
+    "LOSS":"LOSS",
+    "TIE":"TIE",
+    "From_time":"From time",
+    "Until_time":"Until time",
+    "update_game":"Update game",
+    "first_name":"First name",
+    "last_name":"Last name",
+    "logout_msg":"Are you sure you want to logout from the application?",
+    "select_team":"Select team",
+    "new_training_plan":"New training plan",
+    "training_plan":"Training plan",
+    "delete_msg":"Are you sure you want to delete this record from the system ?",
+    "select_position":"Select position",
+    "no_data_found":"No data found",
+    "select_staff_member":"Select staff member",
+    "Total":"Total",
+    "Last":"Last test",
+    "edit_training_plan":"Edit training plan",
+    "matches":"Matches",
+    "scored":"Scored",
+    "conceded":"Conceded",
+    "Gamestatistics":"Game statistics",
+    "removeMsg":"Are you sure you want to remove?",
+    "serverError":"There was a server error",
+    "add_training":"Add practice",
+    "Select_foot":"Select foot",
+    "part_name":"Part Name",
+    "date_error":"Date error",
+    "time_error":"Time error",
+    "rivel_error":"Rival error",
+    "Training_attandence":"Practice attendance",
+    "game_attandence":"Games attndance",
+    "club_comments":"Club comments",
+    "Update_application":"Update the application",
+    "Your_application":"Your application is not up to date please update it",
+    "Update":"Update",
+    "group_msg":"There are no groups assigned to you",
+    "drawing_board":"Drawing board",
+    "my_drawing_board":"From my drawing board",
+    "save":"Save",
+    "rotate":"Rotate",
+    "edit_number":"Edit number",
+    "drawing_baord_close":"Are you sure you want to close the drawing without saving it ?",
+    "drawing_name":"Drawing name",
+    "Enter_number":"Enter number",
+    "Cancel":"Cancel",
+    "Rename":"Rename",
+    "ave":"Ave",
+    "eraser":"Eraser",
+    "management_instructions":"Management instructions",
+    "practice_filed":"Field",
+    "create_new_drawing":"Create new drawing",
+    "part_time":"Part time",
+    "training_intensity":"Training intensity",
+    "games_instruction":"Games instruction",
+    "practice_instruction":"Practice instruction",
+    "share_with_the_team":"Share with the team",
+    "From":"From",
+    "professional_knowledge":"Professional knowledge",
+    "Latest":"Latest",
+    "select_category":"Select category",
+    "from_management_instructions":"From Management instructions",
+    "from_professional_knowledge":"From Professional knowledge",
+    "select_line_up":"Select line up",
+    "dont_have_account":"Don’t have an account with us ?",
+    "contact_us":"Contact Us !",
+    "message":"Message",
+    "team_center":"Team Center",
+    "account":"Account",
+    "myObjective":"My objectives",
+    "myAbilities":"My abilities",
+    "feedbacks":"Feedbacks",
+    "messages":"Messages",
+    "medical":"Medical",
+    "nextGameObjectives":"Next game objectives",
+    "close":"Close",
+    "myGameObjectives":"My game objectives",
+    "myStatsArea":"My stats area"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+    
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+    
+
+    
+    
+
+
+
+    
+
+
+
+
+
+}      

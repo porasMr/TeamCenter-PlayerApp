@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "708622308311",
+    "project_id": "teamcenter-dev",
+    "storage_bucket": "teamcenter-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:708622308311:android:ed270c942fb47c1d7b7192",
+        "android_client_info": {
+          "package_name": "com.shtibel.teamcenter_player"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "708622308311-k9q8c19ulkl1l0fqvi3hadfqv3mip1ts.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shtibel.teamcenter_player",
+            "certificate_hash": "22ad693521df34415517b3b16f5101d0eda869e1"
+          }
+        },
+        {
+          "client_id": "708622308311-6s2bicem4ic9ogg0k8nvp0gd23duhe0n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlZdlS36-RPnAX1u541k0eVvMLeJhW0jE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "708622308311-6s2bicem4ic9ogg0k8nvp0gd23duhe0n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

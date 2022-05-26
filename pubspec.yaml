@@ -1,0 +1,244 @@
+name: team_center
+description: A new Flutter project.
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  flutter_statusbarcolor: any
+  cupertino_icons: ^1.0.2
+  page_transition: any
+  google_fonts: ^2.0.0
+  pin_code_text_field: ^1.5.1
+  flushbar: any
+  flutter_rating_bar: ^4.0.0
+  modal_bottom_sheet: ^2.0.1
+  collection: ^1.15.0
+  universal_platform: ^1.0.0-nullsafety
+  percent_indicator: ^3.0.1
+  flutter_screenutil: ^5.0.0+2
+  #cell_calendar: any
+  provider: ^5.0.0
+  syncfusion_flutter_calendar: ^20.1.55
+  flutter_svg: any
+  flutter_slidable: ^0.5.7
+
+  flutter_swiper: any
+  shared_preferences: any
+  cached_network_image: ^3.2.0
+  image_picker: any
+  image_cropper: any
+  screenshot: any
+  path_provider: any
+  
+  keyboard_actions: ^3.4.7
+  flutter_time_picker_spinner: ^2.0.0
+  photo_view: any
+  package_info: ^2.0.2
+  flutter_html: any
+  share: ^2.0.4
+  flutter_animation_progress_bar: any
+  drag_and_drop_gridview: ^1.0.8
+  onesignal_flutter: ^2.3.4 #firebase_core: any
+  package_info_plus: any
+  launch_review: any
+  #firebase_crashlytics: any
+  matrix_gesture_detector: ^0.1.0
+  
+  fluttertoast: ^8.0.8
+  simple_tooltip: ^1.0.0
+  
+  path_drawing:
+  gesture_x_detector: ^1.0.0
+  arrow_path: ^2.0.0
+  # gallery_saver: ^2.3.2
+  gallery_saver: any
+  touchable: ^1.0.0
+  badges: any
+  url_launcher: any
+  flutter_inappwebview: ^5.3.2
+  share_plus: ^3.0.4
+  permission_handler: ^8.3.0
+  video_player: any
+  chewie: any
+  
+ 
+  
+  
+  
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  # assets:
+  #   - images/a_dot_burr.jpeg
+  #   - images/a_dot_ham.jpeg
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware.
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: rubikbold
+      fonts:
+        - asset: assets/fonts/rubikbold.ttf
+    - family: rubikregular
+      fonts:
+        - asset: assets/fonts/rubikregular.ttf
+    - family: rubiklight
+      fonts:
+        - asset: assets/fonts/rubiklight.ttf
+    - family: rubikmedium
+      fonts:
+          - asset: assets/fonts/rubikmedium.ttf
+    - family: gveretregular
+      fonts:
+          - asset: assets/fonts/gveretregular.ttf
+
+  assets: 
+    - assets/images/
+
+    - assets/lang/en.json
+    - assets/lang/he.json
+    - assets/countries.json
+
+
+   
+
+
+
+    
+    - flags/
+    - packages/team_center/picker/i18n/af.json
+    - packages/team_center/picker/i18n/am.json
+    - packages/team_center/picker/i18n/ha.json
+    - packages/team_center/picker/i18n/ku.json
+    - packages/team_center/picker/i18n/ml.json
+    - packages/team_center/picker/i18n/no.json
+    - packages/team_center/picker/i18n/ps.json
+    - packages/team_center/picker/i18n/sd.json
+    - packages/team_center/picker/i18n/so.json
+    - packages/team_center/picker/i18n/sq.json
+    - packages/team_center/picker/i18n/ta.json
+    - packages/team_center/picker/i18n/tg.json
+    - packages/team_center/picker/i18n/tt.json
+    - packages/team_center/picker/i18n/ug.json
+    - packages/team_center/picker/i18n/ur.json
+    - packages/team_center/picker/i18n/vi.json
+    - packages/team_center/picker/i18n/ar.json
+    - packages/team_center/picker/i18n/az.json
+    - packages/team_center/picker/i18n/be.json
+    - packages/team_center/picker/i18n/bg.json
+    - packages/team_center/picker/i18n/bn.json
+    - packages/team_center/picker/i18n/bs.json
+    - packages/team_center/picker/i18n/ca.json
+    - packages/team_center/picker/i18n/cs.json
+    - packages/team_center/picker/i18n/da.json
+    - packages/team_center/picker/i18n/de.json
+    - packages/team_center/picker/i18n/el.json
+    - packages/team_center/picker/i18n/en.json
+    - packages/team_center/picker/i18n/es.json
+    - packages/team_center/picker/i18n/et.json
+    - packages/team_center/picker/i18n/fa.json
+    - packages/team_center/picker/i18n/fi.json
+    - packages/team_center/picker/i18n/fr.json
+    - packages/team_center/picker/i18n/gl.json
+    - packages/team_center/picker/i18n/el.json
+    - packages/team_center/picker/i18n/he.json
+    - packages/team_center/picker/i18n/hi.json
+    - packages/team_center/picker/i18n/hr.json
+    - packages/team_center/picker/i18n/hu.json
+    - packages/team_center/picker/i18n/hy.json
+    - packages/team_center/picker/i18n/id.json
+    - packages/team_center/picker/i18n/is.json
+    - packages/team_center/picker/i18n/it.json
+    - packages/team_center/picker/i18n/ja.json
+    - packages/team_center/picker/i18n/ka.json
+    - packages/team_center/picker/i18n/kk.json
+    - packages/team_center/picker/i18n/km.json
+    - packages/team_center/picker/i18n/ko.json
+    - packages/team_center/picker/i18n/ky.json
+    - packages/team_center/picker/i18n/lt.json
+    - packages/team_center/picker/i18n/lv.json
+    - packages/team_center/picker/i18n/mk.json
+    - packages/team_center/picker/i18n/mn.json
+    - packages/team_center/picker/i18n/ms.json
+    - packages/team_center/picker/i18n/nb.json
+    - packages/team_center/picker/i18n/nl.json
+    - packages/team_center/picker/i18n/nn.json
+    - packages/team_center/picker/i18n/pl.json
+    - packages/team_center/picker/i18n/pt.json
+    - packages/team_center/picker/i18n/ro.json
+    - packages/team_center/picker/i18n/ru.json
+    - packages/team_center/picker/i18n/sk.json
+    - packages/team_center/picker/i18n/sl.json
+    - packages/team_center/picker/i18n/sr.json
+    - packages/team_center/picker/i18n/sv.json
+    - packages/team_center/picker/i18n/th.json
+    - packages/team_center/picker/i18n/tr.json
+    - packages/team_center/picker/i18n/uk.json
+    - packages/team_center/picker/i18n/uz.json
+    - packages/team_center/picker/i18n/zh.json
+
+
+
+

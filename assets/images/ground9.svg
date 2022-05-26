@@ -1,0 +1,31 @@
+<svg width="1500" height="2400" viewBox="0 0 1500 2400" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1525_5154)">
+<rect width="1500" height="2400" fill="white"/>
+<rect x="1500" width="2400" height="1500" transform="rotate(90 1500 0)" fill="#59B200"/>
+<rect x="110" width="2282" height="12" transform="rotate(90 110 0)" fill="white"/>
+<rect x="1788" y="2282" width="12" height="1690" transform="rotate(90 1788 2282)" fill="white"/>
+<rect x="1058" y="93" width="12" height="951" transform="rotate(90 1058 93)" fill="white"/>
+<rect x="1067.5" y="1747.04" width="12" height="960.562" transform="rotate(90 1067.5 1747.04)" fill="white"/>
+<rect x="1067" y="93" width="1666" height="12" transform="rotate(90 1067 93)" fill="white"/>
+<rect x="456.396" y="471.473" width="12" height="349.458" transform="rotate(90 456.396 471.473)" fill="white"/>
+<rect x="456.396" y="1389.02" width="12" height="349.458" transform="rotate(90 456.396 1389.02)" fill="white"/>
+<rect x="456.396" y="471.473" width="917.551" height="12" transform="rotate(90 456.396 471.473)" fill="white"/>
+<rect width="12" height="83" transform="matrix(0 1 1 0 24 665)" fill="white"/>
+<rect width="12" height="83" transform="matrix(0 1 1 0 24 1197)" fill="white"/>
+<rect width="532.252" height="12" transform="matrix(0 1 1 0 24.5 665.02)" fill="white"/>
+<circle cx="787.932" cy="940.999" r="21.5051" transform="rotate(90 787.932 940.999)" fill="white"/>
+<mask id="path-14-inside-1_1525_5154" fill="white">
+<path d="M1055.99 1265.37C1133.7 1265.37 1208.23 1231.19 1263.18 1170.36C1318.13 1109.53 1349 1027.03 1349 941C1349 854.972 1318.13 772.467 1263.18 711.636C1208.23 650.805 1133.7 616.631 1055.99 616.631L1055.99 941V1265.37Z"/>
+</mask>
+<path d="M1055.99 1265.37C1133.7 1265.37 1208.23 1231.19 1263.18 1170.36C1318.13 1109.53 1349 1027.03 1349 941C1349 854.972 1318.13 772.467 1263.18 711.636C1208.23 650.805 1133.7 616.631 1055.99 616.631L1055.99 941V1265.37Z" stroke="white" stroke-width="24" mask="url(#path-14-inside-1_1525_5154)"/>
+<mask id="path-15-inside-2_1525_5154" fill="white">
+<path d="M174 2293C174 2283.02 172.034 2273.14 168.215 2263.92C164.395 2254.7 158.797 2246.32 151.74 2239.26C144.683 2232.2 136.305 2226.6 127.084 2222.79C117.863 2218.97 107.98 2217 98 2217L98 2293H174Z"/>
+</mask>
+<path d="M174 2293C174 2283.02 172.034 2273.14 168.215 2263.92C164.395 2254.7 158.797 2246.32 151.74 2239.26C144.683 2232.2 136.305 2226.6 127.084 2222.79C117.863 2218.97 107.98 2217 98 2217L98 2293H174Z" stroke="white" stroke-width="24" mask="url(#path-15-inside-2_1525_5154)"/>
+</g>
+<defs>
+<clipPath id="clip0_1525_5154">
+<rect width="1500" height="2400" fill="white"/>
+</clipPath>
+</defs>
+</svg>
