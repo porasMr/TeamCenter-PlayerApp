@@ -102,7 +102,7 @@ class GameInstructions {
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     images = json['images'];
-    status = json['status'];
+    status = json['message_status'];
     file_description = json['file_description'];
 
     short_description = json['short_description'].toString();

@@ -25,10 +25,14 @@ import 'package:team_center/utils/TeamCenterLocalizations.dart';
 import 'package:team_center/utils/country_list.dart';
 import 'package:team_center/utils/shared_preferences.dart';
 
+import '../../game_section_package/GameDetailsScreen.dart';
 import '../../main.dart';
 import '../../utils/SelectImageInterface.dart';
 import '../../utils/SelectOtherImageWithCrop.dart';
 import '../home_package copy/homePage.dart';
+import '../managment_instruction_package/managment_instruaction.dart';
+import '../professional_package/ProfessionalKnowledagePage.dart';
+import '../tranning_package/TimeTrainingScreen.dart';
 import 'model/player_objective.dart';
 
 class PlayerObjectiveScreen extends StatefulWidget {
@@ -37,12 +41,14 @@ class PlayerObjectiveScreen extends StatefulWidget {
 }
 
 class _PlayerObjectiveScreenState extends State<PlayerObjectiveScreen>
-    implements ApiInterface {
+    implements ApiInterface, NotificationClick {
   PlayerObjectives model = PlayerObjectives();
   bool isLoader = true;
   @override
   void initState() {
     super.initState();
+    CommonMethod.initPlatformState(this);
+
     hundler();
     ApiCall.getAbility(this, context);
   }
@@ -190,38 +196,63 @@ class _PlayerObjectiveScreenState extends State<PlayerObjectiveScreen>
                                                 ),
                                                 Expanded(
                                                   flex: 1,
-                                                  child: Column(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    children: [
-                                                      AppTextSize.textSize16(
-                                                          "${CommonMethod.dateRetrun(model.nextGameObjective!.date!)} ${model.nextGameObjective!.time!} ${model.nextGameObjective!.rival}",
-                                                          AppColors
-                                                              .blackColor[500]!,
-                                                          FontWeight.normal,
-                                                          "rubikregular",
-                                                          1),
-                                                      SizedBox(
-                                                        height: 5,
-                                                      ),
-                                                      Flexible(
-                                                        flex: 1,
-                                                        child: AppTextSize
-                                                            .textSizeShortDesc12(
-                                                               playerObjectiveAccordingToModel(),
-                                                                AppColors
-                                                                    .selectedGrey,
-                                                                FontWeight
-                                                                    .normal,
-                                                                "rubikregular",
-                                                                2),
-                                                      ),
-                                                    ],
+                                                  child: GestureDetector(
+                                                    onTap: () {
+                                                      Navigator.push(
+                                                          context,
+                                                          PageTransition(
+                                                              type:
+                                                                  PageTransitionType
+                                                                      .fade,
+                                                              child:
+                                                                  GameDetailsScreen(
+                                                                gameId: model
+                                                                    .nextGameObjective!
+                                                                    .id
+                                                                    .toString(),
+                                                              ))).then(
+                                                          (value) {});
+                                                    },
+                                                    child: Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      children: [
+                                                        AppTextSize.textSize16(
+                                                            "${CommonMethod.dateRetrun(model.nextGameObjective!.date!)} ${model.nextGameObjective!.time!} ${model.nextGameObjective!.rival}",
+                                                            AppColors
+                                                                    .blackColor[
+                                                                500]!,
+                                                            FontWeight.normal,
+                                                            "rubikregular",
+                                                            1),
+                                                        SizedBox(
+                                                          height: 5,
+                                                        ),
+                                                        model
+                                                                    .nextGameObjective!
+                                                                    .playerObjective!
+                                                                    .length ==
+                                                                0
+                                                            ? Container()
+                                                            : Flexible(
+                                                                flex: 1,
+                                                                child: AppTextSize.textSizeShortDesc12(
+                                                                    playerObjectiveAccordingToModel(),
+                                                                    AppColors
+                                                                        .selectedGrey,
+                                                                    FontWeight
+                                                                        .normal,
+                                                                    "rubikregular",
+                                                                    2),
+                                                              ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
                                                 SizedBox(
@@ -431,5 +462,45 @@ class _PlayerObjectiveScreenState extends State<PlayerObjectiveScreen>
         return model.nextGameObjective!.playerObjective![i].objective!;
       }
     }
+  }
+
+  @override
+  void onClick(id, type) {
+    if (type == "game") {
+      Navigator.push(
+          context,
+          PageTransition(
+              type: PageTransitionType.fade,
+              child: GameDetailsScreen(
+                gameId: id,
+              ))).then((value) {
+        setState(() {});
+      });
+    } else if (type == "game_instruction" || type == "training_instruction") {
+      Navigator.push(
+              context,
+              PageTransition(
+                  type: PageTransitionType.fade,
+                  child: ManagmentInstructionScreen(id: id, type: type)))
+          .then((value) {});
+    } else if (type == "professional_knowledge") {
+      Navigator.push(
+              context,
+              PageTransition(
+                  type: PageTransitionType.fade,
+                  child: ProfessionalKnowledagePage(id: id, type: type)))
+          .then((value) {});
+    } else {
+      Navigator.push(
+              context,
+              PageTransition(
+                  type: PageTransitionType.fade, child: TimeTrainingScreen()))
+          .then((value) {});
+    }
+  }
+
+  @override
+  void updateBadge(id, String type) {
+    // TODO: implement updateBadge
   }
 }

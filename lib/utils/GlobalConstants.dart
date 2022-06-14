@@ -35,7 +35,7 @@ class GlobalConstants {
 
   static String shareText = "check out my website https://example.com";
 
-  static String oneSignalAppId = "fdf35eb1-ce22-467d-8632-c7e3f55265f4";
+  static String oneSignalAppId = "69434509-d22f-41d2-b41a-e794244f0a1c";
 
   // static String oneSignalAppId = "41207a6d-3ed9-428a-8745-3cb96791f0ca";
 

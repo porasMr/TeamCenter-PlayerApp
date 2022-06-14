@@ -78,6 +78,7 @@ class Latest {
   String? shortDescription;
   Category? category;
   bool? isSelected = false;
+  int? messageStatus;
 
   Latest(
       {this.id,
@@ -97,7 +98,8 @@ class Latest {
       this.createdAt,
       this.updatedAt,
       this.shortDescription,
-      this.category});
+      this.category,
+      this.messageStatus});
 
   Latest.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -120,6 +122,8 @@ class Latest {
     category = json['category'] != null
         ? new Category.fromJson(json['category'])
         : null;
+
+    messageStatus = json['message_status'];
   }
 
   Map<String, dynamic> toJson() {
@@ -141,6 +145,8 @@ class Latest {
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
     data['short_description'] = this.shortDescription;
+    data['message_status'] = this.messageStatus;
+
     if (this.category != null) {
       data['category'] = this.category!.toJson();
     }

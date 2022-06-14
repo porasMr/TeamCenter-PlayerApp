@@ -43,6 +43,7 @@ class _ProfessionalKnowledagePageState extends State<ProfessionalKnowledagePage>
   void initState() {
     ApiCall.professionalKnowledge(searchMstring, this, context);
     getCategory();
+
     hundler();
     super.initState();
   }
@@ -834,7 +835,8 @@ class _ProfessionalKnowledagePageState extends State<ProfessionalKnowledagePage>
                   child: ProfessionalDetailsScreen(
                     professional: model.data![i],
                   ))).then((value) {
-            setState(() {});
+            ApiCall.professionalKnowledge(searchMstring, this, context);
+            hundler();
           });
           break;
         }

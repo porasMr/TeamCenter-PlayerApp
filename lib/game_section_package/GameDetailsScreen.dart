@@ -815,10 +815,7 @@ class _GameDetailsScreenState extends State<GameDetailsScreen>
                                             )),
                                       ],
                                     ),
-                              model.gameDetail!.playerObjective!.length == 0 ||
-                                      model.gameDetail!.playerObjective == null
-                                  ? Container()
-                                  : Container(child: objectiveView()),
+                              Container(child: objectiveView()),
                               SizedBox(
                                 height: 20,
                               ),
@@ -891,8 +888,10 @@ class _GameDetailsScreenState extends State<GameDetailsScreen>
   objectiveView() {
     for (int i = 0; i < model.gameDetail!.playerObjective!.length; i++) {
       if (model.gameDetail!.playerObjective![i].playerId.toString() ==
-          SharedPref.getPlayerId()) {
+          CommonMethod.userId()) {
         return Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(
@@ -910,14 +909,18 @@ class _GameDetailsScreenState extends State<GameDetailsScreen>
               ),
             ),
             SizedBox(
-              height: 16,
+              height: 10,
             ),
-            AppTextSize.textSize16WithExtraLineSpacing(
-                model.gameDetail!.playerObjective![i].objective!,
-                Colors.black,
-                FontWeight.normal,
-                "rubikregular",
-                8),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              margin: EdgeInsets.only(left: 24, right: 24),
+              child: AppTextSize.textSize16WithExtraLineSpacing(
+                  model.gameDetail!.playerObjective![i].objective!,
+                  Colors.black,
+                  FontWeight.normal,
+                  "rubikregular",
+                  8),
+            ),
           ],
         );
       }

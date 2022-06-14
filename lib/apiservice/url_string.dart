@@ -100,9 +100,8 @@ class UrlConstant {
   static const String editDrawingBoardImage = BaseUrl + "editDrawingBoardImage";
 
   static const String instruction = BaseUrl + "managmentInstruction";
-  static const String totalInstruction = BaseUrl + "totalInstruction";
-  static const String readInstructionMessage =
-      BaseUrl + "readInstructionMessage";
+  static const String totalInstruction = BaseUrl + "allmanagmentInstruction";
+  static const String readInstructionMessage = BaseUrl + "readPlayerMessage";
 
   static const String filedList = BaseUrl + "filedList";
   static const String trainingPlanTimeAndLevel =
@@ -118,4 +117,5 @@ class UrlConstant {
       BaseUrl + "professionalKnowledgeCategory";
 
   static const String lineUpimage = BaseUrl + "lineUpimage";
+  static const String playerProfile = BaseUrl + "playerProfile";
 }

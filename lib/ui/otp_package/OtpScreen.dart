@@ -22,7 +22,6 @@ import 'package:team_center/utils/globals.dart' as globals;
 
 import '../home_package copy/homePage.dart';
 
-
 class OtpScreen extends StatefulWidget {
   var countryCode;
   var phone;
@@ -484,10 +483,12 @@ class _OtpScreenState extends State<OtpScreen>
         Locale newLocale = Locale("he");
         MyHomePage.setLocale(context, newLocale);
       }
-      Navigator.pushReplacement(
-          context,
-          PageTransition(
-              type: PageTransitionType.fade, child: HomePageScreen()));
+      Navigator.of(context).pushNamedAndRemoveUntil(
+          '/HomePageScreen', (Route<dynamic> route) => false);
+      // Navigator.pushReplacement(
+      //     context,
+      //     PageTransition(
+      //         type: PageTransitionType.fade, child: HomePageScreen()));
     } else {
       setState(() {
         _isSendagain = false;

@@ -21,6 +21,9 @@ import 'package:team_center/utils/NotificationCallBack.dart';
 import 'package:team_center/utils/TeamCenterLocalizations.dart';
 import 'package:team_center/utils/shared_preferences.dart';
 
+import '../../game_section_package/GameDetailsScreen.dart';
+import '../professional_package/ProfessionalKnowledagePage.dart';
+import '../tranning_package/TimeTrainingScreen.dart';
 import 'instruction_interface.dart';
 import 'instruction_tab_item/GameInstuctionDetails.dart';
 import 'instruction_tab_item/TrainingInstructionDetail.dart';
@@ -28,6 +31,9 @@ import 'model/InstructionModel.dart';
 import 'package:team_center/utils/globals.dart' as globals;
 
 class ManagmentInstructionScreen extends StatefulWidget {
+  String? id;
+  String? type;
+  ManagmentInstructionScreen({this.id, this.type});
   @override
   _ManagmentInstructionScreenState createState() =>
       _ManagmentInstructionScreenState();
@@ -35,7 +41,7 @@ class ManagmentInstructionScreen extends StatefulWidget {
 
 class _ManagmentInstructionScreenState extends State<ManagmentInstructionScreen>
     with TickerProviderStateMixin
-    implements ApiInterface, InstructionUpdate {
+    implements ApiInterface, InstructionUpdate, NotificationClick {
   List<Tab> _tabs = List<Tab>.empty(growable: true);
   late TabController _tabController;
   bool isLoader = true;
@@ -47,9 +53,11 @@ class _ManagmentInstructionScreenState extends State<ManagmentInstructionScreen>
     _tabs = getTabs();
     _tabController = getTabController();
     // getselectedData();
+    CommonMethod.initPlatformState(this);
+
     hundler();
     ApiCall.instruction(this, context);
-    // totalInstruction(context);
+    totalInstruction(context);
   }
 
   hundler() async {
@@ -314,8 +322,46 @@ class _ManagmentInstructionScreenState extends State<ManagmentInstructionScreen>
     model = InstructionModel.fromJson(data);
     isLoader = false;
     Navigator.pop(context);
-
     setState(() {});
+    if (widget.type != null) {
+      if (widget.type == "game_instruction") {
+        for (int i = 0; i < model.data!.gameInstructions!.length; i++) {
+          if (widget.id == model.data!.gameInstructions![i].id.toString()) {
+            widget.type = null;
+
+            Navigator.push(
+                context,
+                PageTransition(
+                    type: PageTransitionType.fade,
+                    child: GameInstructionDetailsScreen(
+                      gameInstructions: model.data!.gameInstructions![i],
+                    ))).then((value) {
+              refershInstruction(1);
+            });
+
+            break;
+          }
+        }
+      } else {
+        for (int i = 0; i < model.data!.trainingInstructions!.length; i++) {
+          if (widget.id == model.data!.trainingInstructions![i].id.toString()) {
+            widget.type = null;
+
+            Navigator.push(
+                context,
+                PageTransition(
+                    type: PageTransitionType.fade,
+                    child: TrainingInstructionDetailsScreen(
+                      traningInstructions: model.data!.trainingInstructions![i],
+                    ))).then((value) {
+              refershInstruction(0);
+            });
+
+            break;
+          }
+        }
+      }
+    }
   }
 
   @override
@@ -385,5 +431,68 @@ class _ManagmentInstructionScreenState extends State<ManagmentInstructionScreen>
 
       }
     } catch (e) {}
+  }
+
+  @override
+  void onClick(id, type) {
+    if (type == "game") {
+      Navigator.push(
+          context,
+          PageTransition(
+              type: PageTransitionType.fade,
+              child: GameDetailsScreen(
+                gameId: id,
+              ))).then((value) {
+        setState(() {});
+      });
+    } else if (type == "game_instruction" || type == "training_instruction") {
+      if (widget.type == "game_instruction") {
+        for (int i = 0; i < model.data!.gameInstructions!.length; i++) {
+          if (widget.id == model.data!.gameInstructions![i].id.toString()) {
+            Navigator.push(
+                context,
+                PageTransition(
+                    type: PageTransitionType.fade,
+                    child: GameInstructionDetailsScreen(
+                      gameInstructions: model.data!.gameInstructions![i],
+                    ))).then((value) {
+              refershInstruction(1);
+            });
+            break;
+          }
+        }
+      } else if (type == "professional_knowledge") {
+        Navigator.push(
+                context,
+                PageTransition(
+                    type: PageTransitionType.fade,
+                    child: ProfessionalKnowledagePage(id: id, type: type)))
+            .then((value) {});
+      } else {
+        for (int i = 0; i < model.data!.trainingInstructions!.length; i++) {
+          if (widget.id == model.data!.trainingInstructions![i].id.toString()) {
+            Navigator.push(
+                context,
+                PageTransition(
+                    type: PageTransitionType.fade,
+                    child: TrainingInstructionDetailsScreen(
+                      traningInstructions: model.data!.trainingInstructions![i],
+                    ))).then((value) {
+              refershInstruction(0);
+            });
+            break;
+          }
+        }
+      }
+    } else {
+      Navigator.push(
+              context,
+              PageTransition(
+                  type: PageTransitionType.fade, child: TimeTrainingScreen()))
+          .then((value) {
+        hundler();
+        ApiCall.homepageData(this, context);
+      });
+    }
   }
 }

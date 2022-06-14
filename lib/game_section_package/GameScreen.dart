@@ -20,6 +20,8 @@ import 'package:team_center/utils/cell_calender_package/src/cell_calendar.dart';
 import 'package:team_center/utils/cell_calender_package/src/controllers/cell_calendar_page_controller.dart';
 import 'package:team_center/utils/sample_game_event.dart';
 
+import '../ui/professional_package/ProfessionalKnowledagePage.dart';
+import '../ui/tranning_package/TimeTrainingScreen.dart';
 import 'GameDetailsScreen.dart';
 import 'model/GameListingModel.dart';
 import 'package:team_center/utils/globals.dart' as globals;
@@ -368,7 +370,39 @@ class _GameScreenState extends State<GameScreen>
   }
 
   @override
-  void onClick(id, type) {}
+  void onClick(id, type) {
+    if (type == "game") {
+      Navigator.push(
+          context,
+          PageTransition(
+              type: PageTransitionType.fade,
+              child: GameDetailsScreen(
+                gameId: id,
+              ))).then((value) {
+        setState(() {});
+      });
+    } else if (type == "game_instruction" || type == "training_instruction") {
+      Navigator.push(
+              context,
+              PageTransition(
+                  type: PageTransitionType.fade,
+                  child: ManagmentInstructionScreen(id: id, type: type)))
+          .then((value) {});
+    } else if (type == "professional_knowledge") {
+      Navigator.push(
+              context,
+              PageTransition(
+                  type: PageTransitionType.fade,
+                  child: ProfessionalKnowledagePage(id: id, type: type)))
+          .then((value) {});
+    } else {
+      Navigator.push(
+              context,
+              PageTransition(
+                  type: PageTransitionType.fade, child: TimeTrainingScreen()))
+          .then((value) {});
+    }
+  }
 
   @override
   void updateBadge(id, String type) {}

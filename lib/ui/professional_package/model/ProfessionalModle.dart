@@ -82,7 +82,7 @@ class Data {
     id = json['id'];
     clubId = json['club_id'];
     categoryId = json['category_id'];
-    status = json['status'];
+    status = json['message_status'];
     canView = json['can_view'];
     showToHome = json['show_to_home'];
     title = json['title'];
@@ -200,7 +200,7 @@ class Latest {
     id = json['id'];
     clubId = json['club_id'];
     categoryId = json['category_id'];
-    status = json['status'];
+    status = json['message_status'];
     canView = json['can_view'];
     showToHome = json['show_to_home'];
     title = json['title'];

@@ -1,20 +1,20 @@
 {
   "project_info": {
-    "project_number": "708622308311",
-    "project_id": "teamcenter-dev",
-    "storage_bucket": "teamcenter-dev.appspot.com"
+    "project_number": "710645981730",
+    "project_id": "teamcenter-player",
+    "storage_bucket": "teamcenter-player.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:708622308311:android:ed270c942fb47c1d7b7192",
+        "mobilesdk_app_id": "1:710645981730:android:39feb5bec08c6aea42207b",
         "android_client_info": {
           "package_name": "com.shtibel.teamcenter_player"
         }
       },
       "oauth_client": [
         {
-          "client_id": "708622308311-k9q8c19ulkl1l0fqvi3hadfqv3mip1ts.apps.googleusercontent.com",
+          "client_id": "710645981730-knlfo19qpbou4oc29bq578o0cni4f912.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.shtibel.teamcenter_player",
@@ -22,20 +22,20 @@
           }
         },
         {
-          "client_id": "708622308311-6s2bicem4ic9ogg0k8nvp0gd23duhe0n.apps.googleusercontent.com",
+          "client_id": "710645981730-quief7o56rgclqvaohdq12rt227pe9od.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBlZdlS36-RPnAX1u541k0eVvMLeJhW0jE"
+          "current_key": "AIzaSyDkXvgzb1w0XHIVryVH4NhroCn5DKg_1dk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "708622308311-6s2bicem4ic9ogg0k8nvp0gd23duhe0n.apps.googleusercontent.com",
+              "client_id": "710645981730-quief7o56rgclqvaohdq12rt227pe9od.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

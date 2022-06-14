@@ -12,6 +12,7 @@ import 'package:team_center/apiservice/api_call.dart';
 import 'package:team_center/apiservice/api_interface.dart';
 import 'package:team_center/apiservice/key_string.dart';
 import 'package:team_center/apiservice/url_string.dart';
+import 'package:team_center/game_section_package/GameScreen.dart';
 
 import 'package:team_center/utils/AppColors.dart';
 import 'package:team_center/utils/AppImages.dart';
@@ -23,11 +24,16 @@ import 'package:team_center/utils/play_video.dart';
 import 'package:team_center/utils/shared_preferences.dart';
 import 'package:team_center/utils/globals.dart' as globals;
 
+import '../../game_section_package/GameDetailsScreen.dart';
+import '../../game_section_package/GameStats.dart';
 import '../managment_instruction_package/InAppWebViewExampleScreen.dart';
+import '../managment_instruction_package/managment_instruaction.dart';
 import '../menu_package/MenuPage.dart';
+import '../menu_package/PlayerObjectiveScreen.dart';
 import '../menu_package/account.dart';
 import '../professional_package/ProfessionalDetail.dart';
 import '../professional_package/ProfessionalKnowledagePage.dart';
+import '../tranning_package/TimeTrainingScreen.dart';
 import 'model/HomePageModel.dart';
 
 class HomePageScreen extends StatefulWidget {
@@ -59,6 +65,7 @@ class _HomePageScreenState extends State<HomePageScreen>
   @override
   void initState() {
     super.initState();
+    CommonMethod.initPlatformState(this);
     hundler();
     ApiCall.homepageData(this, context);
   }
@@ -122,7 +129,12 @@ class _HomePageScreenState extends State<HomePageScreen>
                                             type: PageTransitionType.fade,
                                             child: AccountScreen()))
                                     .then((value) {
-                                  setState(() {});
+                                  setState(() {
+                                    CommonMethod.initPlatformState(this);
+
+                                    hundler();
+                                    ApiCall.homepageData(this, context);
+                                  });
                                 });
                               },
                               child: Stack(
@@ -245,7 +257,12 @@ class _HomePageScreenState extends State<HomePageScreen>
                                             type: PageTransitionType.fade,
                                             child: MenuScreen()))
                                     .then((value) {
-                                  setState(() {});
+                                  setState(() {
+                                    CommonMethod.initPlatformState(this);
+
+                                    hundler();
+                                    ApiCall.homepageData(this, context);
+                                  });
                                 });
                               },
                               child: Container(
@@ -292,7 +309,7 @@ class _HomePageScreenState extends State<HomePageScreen>
                                                     .defaultAppColor[500]!,
                                               ),
                                               child: Text(
-                                                "0",
+                                                "$totalCount",
                                                 style: TextStyle(
                                                     fontSize: 10,
                                                     color: Colors.white,
@@ -344,65 +361,131 @@ class _HomePageScreenState extends State<HomePageScreen>
                                             SizedBox(
                                               height: 10,
                                             ),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Image.asset(
-                                                  AppImages.games,
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                                SizedBox(
-                                                  width: 5,
-                                                ),
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: Column(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    children: [
-                                                      AppTextSize.textSize16(
-                                                          "${CommonMethod.dateRetrun(model.data!.nextGameObjective!.date!)} ${model.data!.nextGameObjective!.time!} ${model.data!.nextGameObjective!.rival}",
-                                                          AppColors
-                                                              .blackColor[500]!,
-                                                          FontWeight.normal,
-                                                          "rubikregular",
-                                                          1),
-                                                      SizedBox(
-                                                        height: 5,
-                                                      ),
-                                                      Flexible(
-                                                        flex: 1,
-                                                        child: AppTextSize
-                                                            .textSizeShortDesc12(
-                                                                playerObjectiveAccordingToModel(),
+                                            GestureDetector(
+                                              onTap: () {
+                                                Navigator.push(
+                                                    context,
+                                                    PageTransition(
+                                                        type: PageTransitionType
+                                                            .fade,
+                                                        child:
+                                                            GameDetailsScreen(
+                                                          gameId: model
+                                                              .data!
+                                                              .nextGameObjective!
+                                                              .id
+                                                              .toString(),
+                                                        ))).then((value) {
+                                                  CommonMethod
+                                                      .initPlatformState(this);
+
+                                                  hundler();
+                                                  ApiCall.homepageData(
+                                                      this, context);
+                                                });
+                                              },
+                                              child: Container(
+                                                color: Colors.transparent,
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Image.asset(
+                                                      AppImages.games,
+                                                      width: 20,
+                                                      height: 20,
+                                                    ),
+                                                    SizedBox(
+                                                      width: 5,
+                                                    ),
+                                                    Expanded(
+                                                      flex: 1,
+                                                      child: GestureDetector(
+                                                        onTap: () {
+                                                          Navigator.push(
+                                                              context,
+                                                              PageTransition(
+                                                                  type:
+                                                                      PageTransitionType
+                                                                          .fade,
+                                                                  child:
+                                                                      GameDetailsScreen(
+                                                                    gameId: model
+                                                                        .data!
+                                                                        .nextGameObjective!
+                                                                        .id
+                                                                        .toString(),
+                                                                  ))).then(
+                                                              (value) {
+                                                            CommonMethod
+                                                                .initPlatformState(
+                                                                    this);
+
+                                                            hundler();
+                                                            ApiCall
+                                                                .homepageData(
+                                                                    this,
+                                                                    context);
+                                                          });
+                                                        },
+                                                        child: Column(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          mainAxisSize:
+                                                              MainAxisSize.min,
+                                                          children: [
+                                                            AppTextSize.textSize16(
+                                                                "${CommonMethod.dateRetrun(model.data!.nextGameObjective!.date!)} ${model.data!.nextGameObjective!.time!} ${model.data!.nextGameObjective!.rival}",
                                                                 AppColors
-                                                                    .selectedGrey,
+                                                                        .blackColor[
+                                                                    500]!,
                                                                 FontWeight
                                                                     .normal,
                                                                 "rubikregular",
-                                                                2),
+                                                                1),
+                                                            SizedBox(
+                                                              height: 5,
+                                                            ),
+                                                            model
+                                                                        .data!
+                                                                        .nextGameObjective!
+                                                                        .playerObjective!
+                                                                        .length ==
+                                                                    0
+                                                                ? Container()
+                                                                : Flexible(
+                                                                    flex: 1,
+                                                                    child: AppTextSize.textSizeShortDesc12(
+                                                                        playerObjectiveAccordingToModel(),
+                                                                        AppColors
+                                                                            .selectedGrey,
+                                                                        FontWeight
+                                                                            .normal,
+                                                                        "rubikregular",
+                                                                        2),
+                                                                  ),
+                                                          ],
+                                                        ),
                                                       ),
-                                                    ],
-                                                  ),
+                                                    ),
+                                                    SizedBox(
+                                                      width: 5,
+                                                    ),
+                                                    Icon(
+                                                      Icons.chevron_right,
+                                                      size: 20,
+                                                      color: AppColors
+                                                          .selectedGrey,
+                                                    )
+                                                  ],
                                                 ),
-                                                SizedBox(
-                                                  width: 5,
-                                                ),
-                                                Icon(
-                                                  Icons.chevron_right,
-                                                  size: 20,
-                                                  color: AppColors.selectedGrey,
-                                                )
-                                              ],
+                                              ),
                                             ),
                                             SizedBox(
                                               height: 16,
@@ -438,7 +521,24 @@ class _HomePageScreenState extends State<HomePageScreen>
                                                 1),
                                             Spacer(),
                                             InkWell(
-                                              onTap: () {},
+                                              onTap: () {
+                                                Navigator.push(
+                                                        context,
+                                                        PageTransition(
+                                                            type:
+                                                                PageTransitionType
+                                                                    .fade,
+                                                            child:
+                                                                GameScreen()))
+                                                    .then((value) {
+                                                  CommonMethod
+                                                      .initPlatformState(this);
+
+                                                  hundler();
+                                                  ApiCall.homepageData(
+                                                      this, context);
+                                                });
+                                              },
                                               child: Icon(
                                                 Icons.more_vert,
                                                 size: 30,
@@ -460,7 +560,28 @@ class _HomePageScreenState extends State<HomePageScreen>
                                               Stack(
                                             children: [
                                               InkWell(
-                                                onTap: () {},
+                                                onTap: () {
+                                                  Navigator.push(
+                                                      context,
+                                                      PageTransition(
+                                                          type:
+                                                              PageTransitionType
+                                                                  .fade,
+                                                          child:
+                                                              GameDetailsScreen(
+                                                            gameId: model.data!
+                                                                .game![index].id
+                                                                .toString(),
+                                                          ))).then((value) {
+                                                    CommonMethod
+                                                        .initPlatformState(
+                                                            this);
+
+                                                    hundler();
+                                                    ApiCall.homepageData(
+                                                        this, context);
+                                                  });
+                                                },
                                                 child: Container(
                                                   height: 150,
                                                   width: 150,
@@ -671,7 +792,23 @@ class _HomePageScreenState extends State<HomePageScreen>
                                 model.data!.lastGame == null
                                     ? Container()
                                     : InkWell(
-                                        onTap: () {},
+                                        onTap: () {
+                                          Navigator.push(
+                                              context,
+                                              PageTransition(
+                                                  type: PageTransitionType.fade,
+                                                  child: GameDetailsScreen(
+                                                    gameId: model
+                                                        .data!.lastGame!.id
+                                                        .toString(),
+                                                  ))).then((value) {
+                                            CommonMethod.initPlatformState(
+                                                this);
+
+                                            hundler();
+                                            ApiCall.homepageData(this, context);
+                                          });
+                                        },
                                         child: Container(
                                           padding: EdgeInsets.all(8),
                                           width:
@@ -885,7 +1022,25 @@ class _HomePageScreenState extends State<HomePageScreen>
                                                         1),
                                                   ),
                                                   InkWell(
-                                                    onTap: () {},
+                                                    onTap: () {
+                                                      Navigator.push(
+                                                              context,
+                                                              PageTransition(
+                                                                  type:
+                                                                      PageTransitionType
+                                                                          .fade,
+                                                                  child:
+                                                                      GameStatsScreen()))
+                                                          .then((value) {
+                                                        CommonMethod
+                                                            .initPlatformState(
+                                                                this);
+
+                                                        hundler();
+                                                        ApiCall.homepageData(
+                                                            this, context);
+                                                      });
+                                                    },
                                                     child: Icon(
                                                       Icons.more_vert,
                                                       size: 30,
@@ -905,9 +1060,6 @@ class _HomePageScreenState extends State<HomePageScreen>
                                 : Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      SizedBox(
-                                        height: 10,
-                                      ),
                                       Container(
                                         margin: EdgeInsets.only(
                                             left: 20, right: 20, top: 30),
@@ -923,7 +1075,24 @@ class _HomePageScreenState extends State<HomePageScreen>
                                                 1),
                                             Spacer(),
                                             InkWell(
-                                              onTap: () {},
+                                              onTap: () {
+                                                Navigator.push(
+                                                        context,
+                                                        PageTransition(
+                                                            type:
+                                                                PageTransitionType
+                                                                    .fade,
+                                                            child:
+                                                                TimeTrainingScreen()))
+                                                    .then((value) {
+                                                  CommonMethod
+                                                      .initPlatformState(this);
+
+                                                  hundler();
+                                                  ApiCall.homepageData(
+                                                      this, context);
+                                                });
+                                              },
                                               child: Icon(
                                                 Icons.more_vert,
                                                 size: 30,
@@ -1707,7 +1876,15 @@ class _HomePageScreenState extends State<HomePageScreen>
                                                                       .fade,
                                                               child:
                                                                   ProfessionalKnowledagePage()))
-                                                      .then((value) {});
+                                                      .then((value) {
+                                                    CommonMethod
+                                                        .initPlatformState(
+                                                            this);
+
+                                                    hundler();
+                                                    ApiCall.homepageData(
+                                                        this, context);
+                                                  });
                                                 },
                                                 child: Icon(
                                                   Icons.more_vert,
@@ -1749,6 +1926,14 @@ class _HomePageScreenState extends State<HomePageScreen>
                                                                       .professionalKnowledge![
                                                                   index],
                                                             ))).then((value) {
+                                                      CommonMethod
+                                                          .initPlatformState(
+                                                              this);
+
+                                                      hundler();
+                                                      ApiCall.homepageData(
+                                                          this, context);
+
                                                       setState(() {});
                                                     });
                                                   },
@@ -1904,7 +2089,10 @@ class _HomePageScreenState extends State<HomePageScreen>
                                                                                                   name: model.data!.professionalKnowledge![index].videoUrl!.split("/").last.split(".").first,
                                                                                                   isProfessionalKnowledge: true,
                                                                                                 ))).then((value) {
-                                                                                          setState(() {});
+                                                                                          CommonMethod.initPlatformState(this);
+
+                                                                                          hundler();
+                                                                                          ApiCall.homepageData(this, context);
                                                                                         });
                                                                                       },
                                                                                       child: Image.asset("assets/images/play_icon.png", width: 50, height: 50)))
@@ -2007,9 +2195,74 @@ class _HomePageScreenState extends State<HomePageScreen>
     Navigator.pop(context);
     print(data);
     model = HomePageModel.fromJson(data);
+    totalInstruction(context);
+
     maxValueMethod();
 
-    setState(() {});
+    if (SharedPref.getNotificationId() != "") {
+      if (SharedPref.getNotificationType() == "game") {
+        Navigator.push(
+            context,
+            PageTransition(
+                type: PageTransitionType.fade,
+                child: GameDetailsScreen(
+                  gameId: SharedPref.getNotificationId(),
+                ))).then((value) {
+          setState(() {
+            CommonMethod.initPlatformState(this);
+
+            hundler();
+            ApiCall.homepageData(this, context);
+          });
+        });
+      } else if (SharedPref.getNotificationType() == "game_instruction" ||
+          SharedPref.getNotificationType() == "training_instruction") {
+        Navigator.push(
+                context,
+                PageTransition(
+                    type: PageTransitionType.fade,
+                    child: ManagmentInstructionScreen(
+                        id: SharedPref.getNotificationId(),
+                        type: SharedPref.getNotificationType())))
+            .then((value) {
+          CommonMethod.initPlatformState(this);
+
+          hundler();
+          ApiCall.homepageData(this, context);
+        });
+      } else if (SharedPref.getNotificationType() == "professional_knowledge") {
+        Navigator.push(
+                context,
+                PageTransition(
+                    type: PageTransitionType.fade,
+                    child: ProfessionalKnowledagePage(
+                        id: SharedPref.getNotificationId(),
+                        type: SharedPref.getNotificationType())))
+            .then((value) {
+          setState(() {
+            CommonMethod.initPlatformState(this);
+
+            hundler();
+            ApiCall.homepageData(this, context);
+          });
+        });
+      } else {
+        Navigator.push(
+                context,
+                PageTransition(
+                    type: PageTransitionType.fade, child: TimeTrainingScreen()))
+            .then((value) {
+          setState(() {
+            CommonMethod.initPlatformState(this);
+
+            hundler();
+            ApiCall.homepageData(this, context);
+          });
+        });
+      }
+      SharedPref.saveNotificationId("");
+      SharedPref.saveNotificationType("");
+    }
   }
 
   maxValueMethod() {
@@ -2042,15 +2295,112 @@ class _HomePageScreenState extends State<HomePageScreen>
   }
 
   @override
-  void onClick(id, type) {}
+  void onClick(id, type) {
+    if (type == "game") {
+      Navigator.push(
+          context,
+          PageTransition(
+              type: PageTransitionType.fade,
+              child: GameDetailsScreen(
+                gameId: id,
+              ))).then((value) {
+        setState(() {
+          CommonMethod.initPlatformState(this);
+
+          hundler();
+          ApiCall.homepageData(this, context);
+        });
+      });
+    } else if (type == "game_instruction" || type == "training_instruction") {
+      Navigator.push(
+              context,
+              PageTransition(
+                  type: PageTransitionType.fade,
+                  child: ManagmentInstructionScreen(id: id, type: type)))
+          .then((value) {
+        setState(() {
+          CommonMethod.initPlatformState(this);
+
+          hundler();
+          ApiCall.homepageData(this, context);
+        });
+      });
+    } else if (type == "professional_knowledge") {
+      Navigator.push(
+              context,
+              PageTransition(
+                  type: PageTransitionType.fade,
+                  child: ProfessionalKnowledagePage(id: id, type: type)))
+          .then((value) {
+        setState(() {
+          CommonMethod.initPlatformState(this);
+
+          hundler();
+          ApiCall.homepageData(this, context);
+        });
+      });
+    } else {
+      Navigator.push(
+              context,
+              PageTransition(
+                  type: PageTransitionType.fade, child: TimeTrainingScreen()))
+          .then((value) {
+        CommonMethod.initPlatformState(this);
+
+        hundler();
+        ApiCall.homepageData(this, context);
+      });
+    }
+  }
 
   stateVerify() {
     CommonMethod.initPlatformState(this);
   }
 
   @override
+  Future<http.Response?> totalInstruction(BuildContext context) async {
+    try {
+      final response =
+          await http.post(Uri.parse(UrlConstant.totalInstruction), headers: {
+        "Accept": "application/json",
+        "Authorization": "Bearer ${SharedPref.getLoginToken()}",
+      }, body: {
+        KeyConstant.group_id: CommonMethod.groupID(),
+      });
+      print(response.statusCode);
+      if (response.statusCode == 200) {
+        var data = json.decode(response.body);
+        print(data);
+        if (data['status'] == 1) {
+          setState(() {
+            globals.totalCount = data['totalCount'];
+            globals.gameCount = data['gameCont'];
+            globals.trainingCount = data['trainingCount'];
+            globals.professinalCount = data['professionalknowledge'];
+
+            totalCount = globals.totalCount;
+          });
+        } else {
+          setState(() {});
+        }
+
+        // If server returns an OK response, parse the JSON
+      } else {
+        // If that response was not OK, throw an error.
+
+      }
+    } catch (e) {}
+  }
+
+  @override
   void updateBadge(id, String type) {
     print(type);
+    if (type == "game") {
+    } else if (type == "game_instruction" || type == "training_instruction") {
+      totalInstruction(context);
+    } else if (type == "professional_knowledge") {
+      totalInstruction(context);
+    } else {}
   }
 
   playerObjectiveAccordingToModel() {

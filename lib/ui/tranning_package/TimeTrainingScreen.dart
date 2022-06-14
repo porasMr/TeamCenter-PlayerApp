@@ -19,6 +19,9 @@ import 'package:team_center/utils/CommonMethod.dart';
 import 'package:team_center/utils/NotificationCallBack.dart';
 import 'package:team_center/utils/TeamCenterLocalizations.dart';
 
+import '../../game_section_package/GameDetailsScreen.dart';
+import '../professional_package/ProfessionalKnowledagePage.dart';
+
 class TimeTrainingScreen extends StatefulWidget {
   @override
   _TimeTrainingScreenState createState() => _TimeTrainingScreenState();
@@ -230,7 +233,33 @@ class _TimeTrainingScreenState extends State<TimeTrainingScreen>
   }
 
   @override
-  void onClick(id, type) {}
+  void onClick(id, type) {
+    if (type == "game") {
+      Navigator.push(
+          context,
+          PageTransition(
+              type: PageTransitionType.fade,
+              child: GameDetailsScreen(
+                gameId: id,
+              ))).then((value) {
+        setState(() {});
+      });
+    } else if (type == "game_instruction" || type == "training_instruction") {
+      Navigator.push(
+              context,
+              PageTransition(
+                  type: PageTransitionType.fade,
+                  child: ManagmentInstructionScreen(id: id, type: type)))
+          .then((value) {});
+    } else if (type == "professional_knowledge") {
+      Navigator.push(
+              context,
+              PageTransition(
+                  type: PageTransitionType.fade,
+                  child: ProfessionalKnowledagePage(id: id, type: type)))
+          .then((value) {});
+    } else {}
+  }
 
   @override
   void updateBadge(id, String type) {}

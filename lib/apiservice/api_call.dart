@@ -620,6 +620,39 @@ class ApiCall {
     }
   }
 
+  static Future<http.Response?> playerProfile(
+      ApiInterface callBack, BuildContext context) async {
+    try {
+      final response =
+          await http.get(Uri.parse(UrlConstant.playerProfile), headers: {
+        "Accept": "application/json",
+        "Authorization": "Bearer ${SharedPref.getLoginToken()}",
+      });
+      print(response.body.toString());
+
+      if (response.statusCode == 200) {
+        var data = json.decode(response.body);
+        if (data['status'] == 1) {
+          callBack.onSuccess(data);
+        } else if (data['status'] == 403) {
+          callBack.onFailure(data['message']);
+
+          CommonMethod.openloginPage(context, data['message']);
+        } else {
+          callBack.onFailure(data['message']);
+        }
+        // If server returns an OK response, parse the JSON
+      } else {
+        // If that response was not OK, throw an error.
+        callBack.onFailure(
+            TeamCenterLocalizations.of(context)!.find('serverError'));
+      }
+    } catch (e) {
+      callBack
+          .onFailure(TeamCenterLocalizations.of(context)!.find('serverError'));
+    }
+  }
+
   static Future<http.Response?> homepageData(
       ApiInterface callBack, BuildContext context) async {
     print("${SharedPref.getLoginToken()}");

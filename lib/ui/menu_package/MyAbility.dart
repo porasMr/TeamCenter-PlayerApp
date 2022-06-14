@@ -26,10 +26,14 @@ import 'package:team_center/utils/TeamCenterLocalizations.dart';
 import 'package:team_center/utils/country_list.dart';
 import 'package:team_center/utils/shared_preferences.dart';
 
+import '../../game_section_package/GameDetailsScreen.dart';
 import '../../main.dart';
 import '../../utils/SelectImageInterface.dart';
 import '../../utils/SelectOtherImageWithCrop.dart';
 import '../home_package copy/homePage.dart';
+import '../managment_instruction_package/managment_instruaction.dart';
+import '../professional_package/ProfessionalKnowledagePage.dart';
+import '../tranning_package/TimeTrainingScreen.dart';
 import 'model/player_objective.dart';
 
 class MyAbilityScreen extends StatefulWidget {
@@ -38,12 +42,14 @@ class MyAbilityScreen extends StatefulWidget {
 }
 
 class _MyAbilityScreenState extends State<MyAbilityScreen>
-    implements ApiInterface {
+    implements ApiInterface, NotificationClick {
   PlayerObjectives model = PlayerObjectives();
   bool isLoader = true;
   @override
   void initState() {
     super.initState();
+    CommonMethod.initPlatformState(this);
+
     hundler();
     ApiCall.getAbility(this, context);
   }
@@ -451,5 +457,45 @@ class _MyAbilityScreenState extends State<MyAbilityScreen>
         return model.nextGameObjective!.playerObjective![i].objective!;
       }
     }
+  }
+
+  @override
+  void onClick(id, type) {
+    if (type == "game") {
+      Navigator.push(
+          context,
+          PageTransition(
+              type: PageTransitionType.fade,
+              child: GameDetailsScreen(
+                gameId: id,
+              ))).then((value) {
+        setState(() {});
+      });
+    } else if (type == "game_instruction" || type == "training_instruction") {
+      Navigator.push(
+              context,
+              PageTransition(
+                  type: PageTransitionType.fade,
+                  child: ManagmentInstructionScreen(id: id, type: type)))
+          .then((value) {});
+    } else if (type == "professional_knowledge") {
+      Navigator.push(
+              context,
+              PageTransition(
+                  type: PageTransitionType.fade,
+                  child: ProfessionalKnowledagePage(id: id, type: type)))
+          .then((value) {});
+    } else {
+      Navigator.push(
+              context,
+              PageTransition(
+                  type: PageTransitionType.fade, child: TimeTrainingScreen()))
+          .then((value) {});
+    }
+  }
+
+  @override
+  void updateBadge(id, String type) {
+    // TODO: implement updateBadge
   }
 }

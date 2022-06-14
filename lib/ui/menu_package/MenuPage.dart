@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
@@ -10,6 +11,7 @@ import 'package:team_center/ui/menu_package/MyAbility.dart';
 
 import 'package:team_center/ui/menu_package/account.dart';
 import 'package:team_center/ui/menu_package/PlayerObjectiveScreen.dart';
+import 'package:team_center/ui/menu_package/profile_tab.dart';
 import 'package:team_center/ui/menu_package/test_details.dart';
 
 import 'package:team_center/ui/terms_and_consitions_package/TermsAndConditions.dart';
@@ -25,6 +27,9 @@ import 'package:team_center/utils/shared_preferences.dart';
 import 'package:team_center/utils/globals.dart' as globals;
 import 'package:http/http.dart' as http;
 
+import '../../apiservice/key_string.dart';
+import '../../apiservice/url_string.dart';
+import '../../game_section_package/GameDetailsScreen.dart';
 import '../managment_instruction_package/managment_instruaction.dart';
 import '../professional_package/ProfessionalKnowledagePage.dart';
 import '../tranning_package/TimeTrainingScreen.dart';
@@ -34,7 +39,7 @@ class MenuScreen extends StatefulWidget {
   _MenuScreenState createState() => _MenuScreenState();
 }
 
-class _MenuScreenState extends State<MenuScreen> {
+class _MenuScreenState extends State<MenuScreen> implements NotificationClick {
   var packageInfo;
   String versionname = "";
   int managementCount = 0;
@@ -47,13 +52,20 @@ class _MenuScreenState extends State<MenuScreen> {
       String packageName = packageInfo.packageName;
       versionname = packageInfo.version;
       String buildNumber = packageInfo.buildNumber;
+
       setState(() {});
     });
+    callThisMethod();
   }
 
   @override
   void dispose() {
     super.dispose();
+  }
+
+  callThisMethod() {
+    CommonMethod.initPlatformState(this);
+    totalInstruction(context);
   }
 
   @override
@@ -114,7 +126,9 @@ class _MenuScreenState extends State<MenuScreen> {
                                                     type:
                                                         PageTransitionType.fade,
                                                     child: AccountScreen()))
-                                            .then((value) {});
+                                            .then((value) {
+                                          callThisMethod();
+                                        });
                                       },
                                       child: Stack(
                                         children: [
@@ -262,7 +276,9 @@ class _MenuScreenState extends State<MenuScreen> {
                                   PageTransition(
                                       type: PageTransitionType.fade,
                                       child: AccountScreen()))
-                              .then((value) {});
+                              .then((value) {
+                            callThisMethod();
+                          });
                         },
                         child: Container(
                           height: 50,
@@ -291,7 +307,16 @@ class _MenuScreenState extends State<MenuScreen> {
                         ),
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                                  context,
+                                  PageTransition(
+                                      type: PageTransitionType.fade,
+                                      child: ProfileTab()))
+                              .then((value) {
+                            callThisMethod();
+                          });
+                        },
                         child: Container(
                           height: 50,
                           child: Row(
@@ -325,7 +350,9 @@ class _MenuScreenState extends State<MenuScreen> {
                                   PageTransition(
                                       type: PageTransitionType.fade,
                                       child: PlayerObjectiveScreen()))
-                              .then((value) {});
+                              .then((value) {
+                            callThisMethod();
+                          });
                         },
                         child: Container(
                           height: 50,
@@ -360,7 +387,9 @@ class _MenuScreenState extends State<MenuScreen> {
                                   PageTransition(
                                       type: PageTransitionType.fade,
                                       child: MyAbilityScreen()))
-                              .then((value) {});
+                              .then((value) {
+                            callThisMethod();
+                          });
                         },
                         child: Container(
                           height: 50,
@@ -395,7 +424,9 @@ class _MenuScreenState extends State<MenuScreen> {
                                   PageTransition(
                                       type: PageTransitionType.fade,
                                       child: ManagmentInstructionScreen()))
-                              .then((value) {});
+                              .then((value) {
+                            callThisMethod();
+                          });
                         },
                         child: Container(
                           height: 50,
@@ -482,7 +513,9 @@ class _MenuScreenState extends State<MenuScreen> {
                                   PageTransition(
                                       type: PageTransitionType.fade,
                                       child: TimeTrainingScreen()))
-                              .then((value) {});
+                              .then((value) {
+                            callThisMethod();
+                          });
                         },
                         child: Container(
                           height: 50,
@@ -517,7 +550,9 @@ class _MenuScreenState extends State<MenuScreen> {
                                   PageTransition(
                                       type: PageTransitionType.fade,
                                       child: GameScreen()))
-                              .then((value) {});
+                              .then((value) {
+                            callThisMethod();
+                          });
                         },
                         child: Container(
                           height: 50,
@@ -552,7 +587,9 @@ class _MenuScreenState extends State<MenuScreen> {
                                   PageTransition(
                                       type: PageTransitionType.fade,
                                       child: TestDetailsScreen()))
-                              .then((value) {});
+                              .then((value) {
+                            callThisMethod();
+                          });
                         },
                         child: Container(
                           height: 50,
@@ -580,90 +617,90 @@ class _MenuScreenState extends State<MenuScreen> {
                           ),
                         ),
                       ),
-                      InkWell(
-                        onTap: () {},
-                        child: Container(
-                          height: 50,
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: 16,
-                              ),
-                              Image.asset(
-                                AppImages.feedback,
-                                width: 25,
-                                height: 25,
-                              ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              AppTextSize.textSize14(
-                                  TeamCenterLocalizations.of(context)!
-                                      .find('feedbacks'),
-                                  Colors.black,
-                                  FontWeight.normal,
-                                  "rubikregular",
-                                  1),
-                            ],
-                          ),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {},
-                        child: Container(
-                          height: 50,
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: 16,
-                              ),
-                              Image.asset(
-                                AppImages.note,
-                                width: 25,
-                                height: 25,
-                              ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              AppTextSize.textSize14(
-                                  TeamCenterLocalizations.of(context)!
-                                      .find('messages'),
-                                  Colors.black,
-                                  FontWeight.normal,
-                                  "rubikregular",
-                                  1),
-                            ],
-                          ),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {},
-                        child: Container(
-                          height: 50,
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: 16,
-                              ),
-                              Image.asset(
-                                AppImages.medical,
-                                width: 25,
-                                height: 25,
-                              ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              AppTextSize.textSize14(
-                                  TeamCenterLocalizations.of(context)!
-                                      .find('medical'),
-                                  Colors.black,
-                                  FontWeight.normal,
-                                  "rubikregular",
-                                  1),
-                            ],
-                          ),
-                        ),
-                      ),
+                      // InkWell(
+                      //   onTap: () {},
+                      //   child: Container(
+                      //     height: 50,
+                      //     child: Row(
+                      //       children: [
+                      //         SizedBox(
+                      //           width: 16,
+                      //         ),
+                      //         Image.asset(
+                      //           AppImages.feedback,
+                      //           width: 25,
+                      //           height: 25,
+                      //         ),
+                      //         SizedBox(
+                      //           width: 20,
+                      //         ),
+                      //         AppTextSize.textSize14(
+                      //             TeamCenterLocalizations.of(context)!
+                      //                 .find('feedbacks'),
+                      //             Colors.black,
+                      //             FontWeight.normal,
+                      //             "rubikregular",
+                      //             1),
+                      //       ],
+                      //     ),
+                      //   ),
+                      // ),
+                      // InkWell(
+                      //   onTap: () {},
+                      //   child: Container(
+                      //     height: 50,
+                      //     child: Row(
+                      //       children: [
+                      //         SizedBox(
+                      //           width: 16,
+                      //         ),
+                      //         Image.asset(
+                      //           AppImages.note,
+                      //           width: 25,
+                      //           height: 25,
+                      //         ),
+                      //         SizedBox(
+                      //           width: 20,
+                      //         ),
+                      //         AppTextSize.textSize14(
+                      //             TeamCenterLocalizations.of(context)!
+                      //                 .find('messages'),
+                      //             Colors.black,
+                      //             FontWeight.normal,
+                      //             "rubikregular",
+                      //             1),
+                      //       ],
+                      //     ),
+                      //   ),
+                      // ),
+                      // InkWell(
+                      //   onTap: () {},
+                      //   child: Container(
+                      //     height: 50,
+                      //     child: Row(
+                      //       children: [
+                      //         SizedBox(
+                      //           width: 16,
+                      //         ),
+                      //         Image.asset(
+                      //           AppImages.medical,
+                      //           width: 25,
+                      //           height: 25,
+                      //         ),
+                      //         SizedBox(
+                      //           width: 20,
+                      //         ),
+                      //         AppTextSize.textSize14(
+                      //             TeamCenterLocalizations.of(context)!
+                      //                 .find('medical'),
+                      //             Colors.black,
+                      //             FontWeight.normal,
+                      //             "rubikregular",
+                      //             1),
+                      //       ],
+                      //     ),
+                      //   ),
+                      // ),
                       InkWell(
                         onTap: () {
                           Navigator.push(
@@ -672,7 +709,9 @@ class _MenuScreenState extends State<MenuScreen> {
                                       type: PageTransitionType.fade,
                                       child: ProfessionalKnowledagePage()))
                               .then((value) {
-                            setState(() {});
+                            setState(() {
+                              callThisMethod();
+                            });
                           });
                         },
                         child: Container(
@@ -697,6 +736,27 @@ class _MenuScreenState extends State<MenuScreen> {
                                   FontWeight.normal,
                                   "rubikregular",
                                   1),
+                              Spacer(),
+                              professionaKnowledgeCount == 0
+                                  ? Container()
+                                  : Container(
+                                      width: 40,
+                                      height: 20,
+                                      alignment: Alignment.center,
+                                      child: AppTextSize.textSize12(
+                                          "$professionaKnowledgeCount",
+                                          Colors.white,
+                                          FontWeight.normal,
+                                          "rubikregular",
+                                          1),
+                                      decoration: BoxDecoration(
+                                          color: AppColors.defaultAppColor[500],
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(10))),
+                                    ),
+                              SizedBox(
+                                width: 16,
+                              ),
                             ],
                           ),
                         ),
@@ -708,7 +768,9 @@ class _MenuScreenState extends State<MenuScreen> {
                                   PageTransition(
                                       type: PageTransitionType.fade,
                                       child: TermsAndConditionsScreen()))
-                              .then((value) {});
+                              .then((value) {
+                            callThisMethod();
+                          });
                         },
                         child: Container(
                           height: 50,
@@ -909,5 +971,90 @@ class _MenuScreenState extends State<MenuScreen> {
   }
 
   @override
-  void onClick(id, type) {}
+  void onClick(id, type) {
+    if (type == "game") {
+      Navigator.push(
+          context,
+          PageTransition(
+              type: PageTransitionType.fade,
+              child: GameDetailsScreen(
+                gameId: id,
+              ))).then((value) {
+        callThisMethod();
+        setState(() {});
+      });
+    } else if (type == "game_instruction" || type == "training_instruction") {
+      Navigator.push(
+              context,
+              PageTransition(
+                  type: PageTransitionType.fade,
+                  child: ManagmentInstructionScreen(id: id, type: type)))
+          .then((value) {
+        callThisMethod();
+        setState(() {});
+      });
+    } else if (type == "professional_knowledge") {
+      Navigator.push(
+              context,
+              PageTransition(
+                  type: PageTransitionType.fade,
+                  child: ProfessionalKnowledagePage(id: id, type: type)))
+          .then((value) {
+        callThisMethod();
+        setState(() {});
+      });
+    } else {
+      Navigator.push(
+              context,
+              PageTransition(
+                  type: PageTransitionType.fade, child: TimeTrainingScreen()))
+          .then((value) {
+        callThisMethod();
+        setState(() {});
+      });
+    }
+  }
+
+  @override
+  void updateBadge(id, String type) {
+    if (type == "game") {
+    } else if (type == "game_instruction" || type == "training_instruction") {
+      callThisMethod();
+    } else {}
+  }
+
+  Future<http.Response?> totalInstruction(BuildContext context) async {
+    try {
+      final response =
+          await http.post(Uri.parse(UrlConstant.totalInstruction), headers: {
+        "Accept": "application/json",
+        "Authorization": "Bearer ${SharedPref.getLoginToken()}",
+      }, body: {
+        KeyConstant.group_id: CommonMethod.groupID(),
+      });
+      print(response.statusCode);
+      if (response.statusCode == 200) {
+        var data = json.decode(response.body);
+        print(data);
+        if (data['status'] == 1) {
+          globals.totalCount = data['totalCount'];
+          globals.gameCount = data['gameCont'];
+          globals.trainingCount = data['trainingCount'];
+          globals.professinalCount = data['professionalknowledge'];
+          print(globals.totalCount);
+          setState(() {});
+
+          managementCount = globals.trainingCount + globals.gameCount;
+          professionaKnowledgeCount = globals.professinalCount;
+        } else {
+          setState(() {});
+        }
+
+        // If server returns an OK response, parse the JSON
+      } else {
+        // If that response was not OK, throw an error.
+
+      }
+    } catch (e) {}
+  }
 }

@@ -238,7 +238,7 @@
     "dont_have_account":"אין לך חשבון איתנו?",
     "contact_us":"צור קשר !",
     "message":"הוֹדָעָה",
-    "team_center":"מרכז הצוות",
+    "team_center":"Team Center",
     "account":"חשבון",
     "myObjective":"היעדים שלי",
     "myAbilities":"היכולות שלי",
@@ -248,7 +248,10 @@
     "nextGameObjectives":"יעדי המשחק הבא",
     "close":"סגור",
     "myGameObjectives":"היעדים שלי למשחק",
-    "myStatsArea":"הסטטיסטיקה שלי"
+    "myStatsArea":"הסטטיסטיקה שלי",
+    "Other":"אַחֵר",
+    "Parrent":"הורה"
+
 
 
 
