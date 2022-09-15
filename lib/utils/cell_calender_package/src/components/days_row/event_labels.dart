@@ -118,20 +118,20 @@ class _EventLabel extends StatelessWidget {
           child: AppTextSize.textSize10(event.eventName, event.eventTextColor,
               FontWeight.normal, "rubikregular", 1),
         ),
-        event.clubComment == false
-            ? Container()
-            : Container(
-                height: 18,
-                alignment: Alignment.topRight,
-                child: Container(
-                  width: 12,
-                  height: 12,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: AppColors.defaultAppColor[500],
-                  ),
-                ),
-              )
+        // event.clubComment == false
+        //     ? Container()
+        //     : Container(
+        //         height: 18,
+        //         alignment: Alignment.topRight,
+        //         child: Container(
+        //           width: 12,
+        //           height: 12,
+        //           decoration: BoxDecoration(
+        //             shape: BoxShape.circle,
+        //             color: AppColors.defaultAppColor[500],
+        //           ),
+        //         ),
+        //       )
       ],
     );
   }

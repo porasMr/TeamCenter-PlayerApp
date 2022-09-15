@@ -738,46 +738,46 @@ class _GameDetailsScreenState extends State<GameDetailsScreen>
                               SizedBox(
                                 height: 20,
                               ),
-                              model.gameDetail!.clubComment == "null" ||
-                                      model.gameDetail!.clubComment == ""
-                                  ? Container()
-                                  : Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Container(
-                                          margin: EdgeInsets.only(
-                                              left: 24, right: 24),
-                                          child: AppTextSize.textSize16(
-                                              TeamCenterLocalizations.of(
-                                                      context)!
-                                                  .find('club_comments'),
-                                              Colors.black,
-                                              FontWeight.bold,
-                                              "rubikregular",
-                                              1),
-                                        ),
-                                        SizedBox(
-                                          height: 10,
-                                        ),
-                                        Container(
-                                          margin: EdgeInsets.only(
-                                              left: 24, right: 24),
-                                          child: Html(
-                                            data: model.gameDetail!.clubComment,
-                                            customTextAlign: (_) =>
-                                                CommonMethod.appLanguage() ==
-                                                        "English"
-                                                    ? TextAlign.left
-                                                    : TextAlign.right,
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          height: 24,
-                                        ),
-                                      ],
-                                    ),
+                              // model.gameDetail!.clubComment == "null" ||
+                              //         model.gameDetail!.clubComment == ""
+                              //     ? Container()
+                              //     : Column(
+                              //         crossAxisAlignment:
+                              //             CrossAxisAlignment.start,
+                              //         mainAxisSize: MainAxisSize.min,
+                              //         children: [
+                              //           Container(
+                              //             margin: EdgeInsets.only(
+                              //                 left: 24, right: 24),
+                              //             child: AppTextSize.textSize16(
+                              //                 TeamCenterLocalizations.of(
+                              //                         context)!
+                              //                     .find('club_comments'),
+                              //                 Colors.black,
+                              //                 FontWeight.bold,
+                              //                 "rubikregular",
+                              //                 1),
+                              //           ),
+                              //           SizedBox(
+                              //             height: 10,
+                              //           ),
+                              //           Container(
+                              //             margin: EdgeInsets.only(
+                              //                 left: 24, right: 24),
+                              //             child: Html(
+                              //               data: model.gameDetail!.clubComment,
+                              //               customTextAlign: (_) =>
+                              //                   CommonMethod.appLanguage() ==
+                              //                           "English"
+                              //                       ? TextAlign.left
+                              //                       : TextAlign.right,
+                              //             ),
+                              //           ),
+                              //           SizedBox(
+                              //             height: 24,
+                              //           ),
+                              //         ],
+                              //       ),
                               model.gameDetail!.plan == "null"
                                   ? Container()
                                   : Column(

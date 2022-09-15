@@ -1003,6 +1003,49 @@ class ApiCall {
     }
   }
 
+  static Future<http.Response?> editProfileWithContact(
+      String country,
+      String city,
+      String address,
+      String phone,
+      ApiInterface callBack,
+      BuildContext context) async {
+    try {
+      final response =
+          await http.post(Uri.parse(UrlConstant.editPlayer), headers: {
+        "Accept": "application/json",
+        "Authorization": "Bearer ${SharedPref.getLoginToken()}",
+      }, body: {
+        KeyConstant.country: country,
+        KeyConstant.city: city,
+        KeyConstant.address: address,
+        KeyConstant.phone: phone
+      });
+      print(response.statusCode);
+      if (response.statusCode == 200) {
+        var data = json.decode(response.body);
+        print(data);
+        if (data['status'] == 1) {
+          callBack.onSuccess(data);
+        } else if (data['status'] == 403) {
+          CommonMethod.openloginPage(context, data['message']);
+          ;
+        } else {
+          callBack.onFailure(data['message']);
+        }
+
+        // If server returns an OK response, parse the JSON
+      } else {
+        // If that response was not OK, throw an error.
+        callBack.onFailure(
+            TeamCenterLocalizations.of(context)!.find('serverError'));
+      }
+    } catch (e) {
+      callBack
+          .onFailure(TeamCenterLocalizations.of(context)!.find('serverError'));
+    }
+  }
+
   static Future<dynamic> editProfile(
       String firstname,
       String lastname,

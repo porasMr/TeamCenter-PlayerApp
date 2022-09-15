@@ -12,7 +12,7 @@ class GlobalConstants {
   static String phone = "login_mobile_number";
   static String position_id = "position_id";
   static String country_code = "country_code";
-  static String addressData = "addressData";
+  static String addressData = "address";
   static String profile_image = "profile_image";
   static String app_language = "app_language";
   static String city = "city";

@@ -13,7 +13,7 @@
     "changePhoneNumber":"Change phone number",
     "sentAgain":"Send again",
     "didNotGetTheCode":"Did not get the code ?",
-    "nextGame":"Next Game",
+    "nextGame":"Next Games",
     "nextTraining":"Team Practices",
     "players":"Players",
     "logout":"Logout",
@@ -248,7 +248,10 @@
     "myGameObjectives":"My game objectives",
     "myStatsArea":"My stats area",
     "Other":"Other",
-    "Parrent":"Parrent"
+    "Parrent":"Parrent",
+    "palyerContacts":"Palyer contacts",
+    "addContacts":"Add contact"
+
 
 
 

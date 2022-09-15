@@ -8,6 +8,7 @@ class CalendarEvent {
       {required this.eventName,
       required this.eventDate,
       this.time = "10.00",
+      this.endTime = "10.00",
       this.eventBackgroundColor = Colors.blue,
       this.eventTextColor = Colors.white,
       this.eventID,
@@ -17,6 +18,8 @@ class CalendarEvent {
       this.clubComment = false});
 
   final String time;
+  final String endTime;
+
   final String gameType;
   var gamePlace;
 

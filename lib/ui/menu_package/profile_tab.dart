@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:team_center/apiservice/api_call.dart';
 import 'package:team_center/apiservice/api_interface.dart';
+import 'package:team_center/ui/menu_package/edit_profile.dart';
 
 import 'package:team_center/utils/AppColors.dart';
 import 'package:team_center/utils/AppTextSize.dart';
@@ -141,7 +142,21 @@ class _ProfileTabState extends State<ProfileTab>
                                   "rubikregular",
                                   1),
                               InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.push(
+                                          context,
+                                          PageTransition(
+                                              type: PageTransitionType.fade,
+                                              child: EditProfileScreen()))
+                                      .then((value) {
+                                    if (value != null) {
+                                      hundler();
+                                      CommonMethod.initPlatformState(this);
+
+                                      ApiCall.playerProfile(this, context);
+                                    }
+                                  });
+                                },
                                 child: AppTextSize.textSize16(
                                     TeamCenterLocalizations.of(context)!
                                         .find('Edit'),

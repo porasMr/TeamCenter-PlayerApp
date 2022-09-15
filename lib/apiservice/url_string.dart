@@ -118,4 +118,5 @@ class UrlConstant {
 
   static const String lineUpimage = BaseUrl + "lineUpimage";
   static const String playerProfile = BaseUrl + "playerProfile";
+  static const String editPlayer = BaseUrl + "editPlayer";
 }

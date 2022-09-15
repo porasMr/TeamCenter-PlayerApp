@@ -25,14 +25,14 @@ class TestDetailsScreen extends StatefulWidget {
 }
 
 class _TestDetailsScreenState extends State<TestDetailsScreen>
-    implements ApiInterface,NotificationClick {
+    implements ApiInterface, NotificationClick {
   PlayerTest model = PlayerTest();
   bool isLoading = true;
 
   @override
   void initState() {
     super.initState();
-        CommonMethod.initPlatformState(this);
+    CommonMethod.initPlatformState(this);
 
     ApiCall.playerTestWithResult(this, context);
   }
@@ -140,16 +140,20 @@ class _TestDetailsScreenState extends State<TestDetailsScreen>
                                             width: 130,
                                             child: Row(
                                               children: [
-                                                Container(
-                                                  child: AppTextSize.textSize14(
-                                                      model.data![position]
-                                                          .name!,
-                                                      Colors.black,
-                                                      FontWeight.normal,
-                                                      "rubikregular",
-                                                      1),
+                                                Expanded(
+                                                  flex: 1,
+                                                  child: Container(
+                                                    child:
+                                                        AppTextSize.textSize14(
+                                                            model
+                                                                .data![position]
+                                                                .name!,
+                                                            Colors.black,
+                                                            FontWeight.normal,
+                                                            "rubikregular",
+                                                            2),
+                                                  ),
                                                 ),
-                                                Spacer(),
                                                 model
                                                             .data![position]
                                                             .testResult!
@@ -166,22 +170,15 @@ class _TestDetailsScreenState extends State<TestDetailsScreen>
                                                             AppImages.up,
                                                             semanticsLabel:
                                                                 'up')
-                                                    : double.parse(model
-                                                                .data![position]
-                                                                .testResult![0]
-                                                                .number!) ==
-                                                            double.parse(model
-                                                                .data![position]
-                                                                .testResult![1]
-                                                                .number!)
+                                                    : double.parse(model.data![position].testResult![0].number==""?"0":model.data![position].testResult![0].number!) == double.parse(model.data![position].testResult![1].number==""?"0":model.data![position].testResult![1].number!)
                                                         ? SvgPicture.asset(
                                                             AppImages.equalArrow,
                                                             semanticsLabel: 'equal')
                                                         : model.data![position].goodResultType == "less"
-                                                            ? double.parse(model.data![position].testResult![0].number!) < double.parse(model.data![position].testResult![1].number!)
+                                                            ? double.parse(model.data![position].testResult![0].number == "" ? "0" : model.data![position].testResult![0].number!) < double.parse(model.data![position].testResult![1].number == "" ? "0" : model.data![position].testResult![1].number!)
                                                                 ? SvgPicture.asset(AppImages.up, semanticsLabel: 'up')
                                                                 : SvgPicture.asset(AppImages.down, semanticsLabel: 'down')
-                                                            : double.parse(model.data![position].testResult![0].number!) < double.parse(model.data![position].testResult![1].number!)
+                                                            : double.parse(model.data![position].testResult![0].number == "" ? "0" : model.data![position].testResult![0].number!) > double.parse(model.data![position].testResult![1].number == "" ? "0" : model.data![position].testResult![1].number!)
                                                                 ? SvgPicture.asset(AppImages.down, semanticsLabel: 'down')
                                                                 : SvgPicture.asset(AppImages.up, semanticsLabel: 'up'),
                                               ],
@@ -537,8 +534,8 @@ class _TestDetailsScreenState extends State<TestDetailsScreen>
       isLoading = false;
     });
   }
-  
-   @override
+
+  @override
   void onClick(id, type) {
     if (type == "game") {
       Navigator.push(
@@ -557,17 +554,14 @@ class _TestDetailsScreenState extends State<TestDetailsScreen>
                   type: PageTransitionType.fade,
                   child: ManagmentInstructionScreen(id: id, type: type)))
           .then((value) {});
-    }else if (type == "professional_knowledge") {
+    } else if (type == "professional_knowledge") {
       Navigator.push(
               context,
               PageTransition(
                   type: PageTransitionType.fade,
                   child: ProfessionalKnowledagePage(id: id, type: type)))
-          .then((value) {
-       
-      });
-    }
-     else {
+          .then((value) {});
+    } else {
       Navigator.push(
               context,
               PageTransition(
@@ -576,7 +570,6 @@ class _TestDetailsScreenState extends State<TestDetailsScreen>
     }
   }
 
-  
   @override
   void updateBadge(id, String type) {
     // TODO: implement updateBadge
