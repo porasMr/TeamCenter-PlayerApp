@@ -63,7 +63,7 @@ dependencies:
   share: ^2.0.4
   flutter_animation_progress_bar: any
   drag_and_drop_gridview: ^1.0.8
-  onesignal_flutter: ^2.3.4 #firebase_core: any
+  onesignal_flutter: ^3.4.0 #firebase_core: any
   package_info_plus: any
   launch_review: any
   #firebase_crashlytics: any

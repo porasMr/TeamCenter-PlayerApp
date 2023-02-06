@@ -120,54 +120,91 @@ class MyHomePageState extends State<MyHomePage> {
             ));
   }
 
-  initPlatformState() async {
-    OneSignal.shared.init(GlobalConstants.oneSignalAppId, iOSSettings: {
-      OSiOSSettings.autoPrompt: true,
-      OSiOSSettings.inAppLaunchUrl: true
-    });
-    OneSignal.shared
-        .setInFocusDisplayType(OSNotificationDisplayType.notification);
-    var status = await OneSignal.shared.getPermissionSubscriptionState();
-    var playerId = status.subscriptionStatus.userId;
-    print("One Signal Player ID == > $playerId ");
-    SharedPref.savePlayerId(playerId);
+  static initPlatformState() async {
+    await OneSignal.shared.setAppId(GlobalConstants.oneSignalAppId);
+    final status = await OneSignal.shared.getDeviceState();
+    String? osUserID = status?.userId;
+    print("One Signal Player ID == > $osUserID ");
+    SharedPref.savePlayerId(osUserID!);
+    await OneSignal.shared.promptUserForPushNotificationPermission(
+      fallbackToSettings: true,
+    );
 
-    OneSignal.shared.setNotificationReceivedHandler((notification) {
-      int ID = notification.androidNotificationId;
-      this.setState(() {
-        print("addinal data ${notification.payload.additionalData}");
-
-        var data = json.encode(notification.payload.additionalData);
-        Map p = jsonDecode(data);
-
-        SharedPref.saveNotificationId(p['id'].toString());
-        SharedPref.saveNotificationType(p['type'].toString());
-      });
-
-      // //callBack.onClick(data['a']['id'].toString(), data['a']['type']);
-      // print("result type==========" + p['id'].toString());
-    });
     OneSignal.shared
         .setNotificationOpenedHandler((OSNotificationOpenedResult result) {
-      this.setState(() {
-        var data = json.encode(result.notification.payload.additionalData);
-        Map p = jsonDecode(data);
+      print('NOTIFICATION OPENED HANDLER CALLED WITH: ${result}');
+      print("addinal data ${result.notification.additionalData}");
+      var data = json.encode(result.notification.additionalData);
+      Map p = jsonDecode(data);
 
-        SharedPref.saveNotificationId(p['id'].toString());
-        SharedPref.saveNotificationType(p['type'].toString());
-        //callBack.onClick(data['a']['id'].toString(), data['a']['type']);
-        print("result type==========" + p['id'].toString());
-        // print("result typedsfgfgdfgdgdgdgdgdg");
-
-        // print("result type==========" +
-        //     result.notification.payload.rawPayload!.toString());
-      });
+      SharedPref.saveNotificationId(p['id'].toString());
+      SharedPref.saveNotificationType(p['type'].toString());
+      //callBack.onClick(data['a']['id'].toString(), data['a']['type']);
+      print("result type==========" + p['id'].toString());
     });
-    OneSignal.shared
-        .setInAppMessageClickedHandler((OSInAppMessageAction action) {
-      this.setState(() {});
+
+    OneSignal.shared.setNotificationWillShowInForegroundHandler(
+        (OSNotificationReceivedEvent event) {
+      // print('FOREGROUND HANDLER CALLED WITH: ${event}');
+      // int ID = event.notification.androidNotificationId!;
+      // print("addinal data ${event.notification.additionalData}");
+
+      // var data = json.encode(event.notification..additionalData);
+      // Map p = jsonDecode(data);
+      // print("result type==========" + p['type']);
+
+      // callBack.updateBadge(p['id'].toString(), p['type']);
     });
   }
+
+  // initPlatformState() async {
+  //   OneSignal.shared.init(GlobalConstants.oneSignalAppId, iOSSettings: {
+  //     OSiOSSettings.autoPrompt: true,
+  //     OSiOSSettings.inAppLaunchUrl: true
+  //   });
+  //   OneSignal.shared
+  //       .setInFocusDisplayType(OSNotificationDisplayType.notification);
+  //   var status = await OneSignal.shared.getPermissionSubscriptionState();
+  //   var playerId = status.subscriptionStatus.userId;
+  //   print("One Signal Player ID == > $playerId ");
+  //   SharedPref.savePlayerId(playerId);
+
+  //   OneSignal.shared.setNotificationReceivedHandler((notification) {
+  //     int ID = notification.androidNotificationId;
+  //     this.setState(() {
+  //       print("addinal data ${notification.payload.additionalData}");
+
+  //       var data = json.encode(notification.payload.additionalData);
+  //       Map p = jsonDecode(data);
+
+  //       SharedPref.saveNotificationId(p['id'].toString());
+  //       SharedPref.saveNotificationType(p['type'].toString());
+  //     });
+
+  //     // //callBack.onClick(data['a']['id'].toString(), data['a']['type']);
+  //     // print("result type==========" + p['id'].toString());
+  //   });
+  //   OneSignal.shared
+  //       .setNotificationOpenedHandler((OSNotificationOpenedResult result) {
+  //     this.setState(() {
+  //       var data = json.encode(result.notification.payload.additionalData);
+  //       Map p = jsonDecode(data);
+
+  //       SharedPref.saveNotificationId(p['id'].toString());
+  //       SharedPref.saveNotificationType(p['type'].toString());
+  //       //callBack.onClick(data['a']['id'].toString(), data['a']['type']);
+  //       print("result type==========" + p['id'].toString());
+  //       // print("result typedsfgfgdfgdgdgdgdgdg");
+
+  //       // print("result type==========" +
+  //       //     result.notification.payload.rawPayload!.toString());
+  //     });
+  //   });
+  //   OneSignal.shared
+  //       .setInAppMessageClickedHandler((OSInAppMessageAction action) {
+  //     this.setState(() {});
+  //   });
+  // }
 
 // //   initPlatformState() async {
 // //     //Remove this method to stop OneSignal Debugging

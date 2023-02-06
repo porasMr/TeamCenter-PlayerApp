@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Team Player</string>
+	<string>TeamCenter Player</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -15,7 +15,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>team_center</string>
+	<string>team_center_player</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -38,7 +38,7 @@
 	<key>NSCalendarsUsageDescription</key>
 	<string>Team Center needs to access your Calendar</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Team Center need access to your camera to use in your profile.</string>
+	<string>Team Center player need access to your camera to use in your profile.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>We need your location to show you the closest Stores</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
@@ -46,9 +46,9 @@
 	<key>NSMicrophoneUsageDescription</key>
 	<string>This application needs to access your microphone</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Team Center access to your Photos album to use in your profile.</string>
+	<string>Team Center player access to your Photos album to use in your profile.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Team Center access to your Photos album to use in your profile.</string>
+	<string>Team Center player access to your Photos album to use in your profile.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>This application needs the speech recognition permission</string>
 	<key>UIBackgroundModes</key>
