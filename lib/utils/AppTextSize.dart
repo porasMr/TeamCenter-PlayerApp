@@ -62,6 +62,20 @@ class AppTextSize {
     );
   }
 
+  static Widget textSizeShortDesc12WithoutMaxline(
+      String text, Color color, FontWeight weight, String fontName) {
+    return Text(
+      text,
+      style: TextStyle(
+          fontSize: 12,
+          fontWeight: weight,
+          color: color,
+          fontFamily: fontName,
+          letterSpacing: 0.5,
+          decoration: TextDecoration.none),
+    );
+  }
+
   static Widget textSize10(String text, Color color, FontWeight weight,
       String fontName, int maxLine) {
     return Text(

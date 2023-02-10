@@ -290,7 +290,7 @@ class _GameStatsScreenState extends State<GameStatsScreen>
             children: [
               Container(
                 height: 59,
-                width: 70,
+                width: 75,
                 alignment: Alignment.center,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -474,75 +474,88 @@ class _GameStatsScreenState extends State<GameStatsScreen>
                     ),
                     Expanded(
                         flex: 1,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                        child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Container(
-                              width: 20,
-                              height: 20,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: AppColors.mediumGrey,
-                                      blurRadius: 2.0, // soften the shadow
-                                      offset: Offset(
-                                        1.0, // Move to right 10  horizontally
-                                        1.0, // Move to bottom 10 Vertically
-                                      ),
-                                    )
-                                  ],
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(3)),
-                                  border:
-                                      Border.all(width: 1, color: Colors.grey)),
-                              child: AppTextSize.textSize10(
-                                  modle.playerStat![position].revelTeamScore
-                                      .toString(),
-                                  AppColors.appGreyColor[500]!,
-                                  FontWeight.normal,
-                                  "rubikregular",
-                                  1),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Container(
+                                  width: 20,
+                                  height: 20,
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: AppColors.mediumGrey,
+                                          blurRadius: 2.0, // soften the shadow
+                                          offset: Offset(
+                                            1.0, // Move to right 10  horizontally
+                                            1.0, // Move to bottom 10 Vertically
+                                          ),
+                                        )
+                                      ],
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(3)),
+                                      border: Border.all(
+                                          width: 1, color: Colors.grey)),
+                                  child: AppTextSize.textSize10(
+                                      modle.playerStat![position].revelTeamScore
+                                          .toString(),
+                                      AppColors.appGreyColor[500]!,
+                                      FontWeight.normal,
+                                      "rubikregular",
+                                      1),
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                AppTextSize.textSize10(
+                                    ":",
+                                    AppColors.appGreyColor[500]!,
+                                    FontWeight.normal,
+                                    "rubikregular",
+                                    1),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Container(
+                                  width: 20,
+                                  height: 20,
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: AppColors.mediumGrey,
+                                          blurRadius: 2.0, // soften the shadow
+                                          offset: Offset(
+                                            1.0, // Move to right 10  horizontally
+                                            1.0, // Move to bottom 10 Vertically
+                                          ),
+                                        )
+                                      ],
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(3)),
+                                      border: Border.all(
+                                          width: 1, color: Colors.grey)),
+                                  child: AppTextSize.textSize10(
+                                      modle.playerStat![position].myTeamScore
+                                          .toString(),
+                                      AppColors.appGreyColor[500]!,
+                                      FontWeight.normal,
+                                      "rubikregular",
+                                      1),
+                                ),
+                              ],
                             ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            AppTextSize.textSize10(
-                                ":",
-                                AppColors.appGreyColor[500]!,
-                                FontWeight.normal,
-                                "rubikregular",
-                                1),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Container(
-                              width: 20,
-                              height: 20,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: AppColors.mediumGrey,
-                                      blurRadius: 2.0, // soften the shadow
-                                      offset: Offset(
-                                        1.0, // Move to right 10  horizontally
-                                        1.0, // Move to bottom 10 Vertically
-                                      ),
-                                    )
-                                  ],
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(3)),
-                                  border:
-                                      Border.all(width: 1, color: Colors.grey)),
-                              child: AppTextSize.textSize10(
-                                  modle.playerStat![position].myTeamScore
-                                      .toString(),
-                                  AppColors.appGreyColor[500]!,
-                                  FontWeight.normal,
+                            Flexible(
+                              child: AppTextSize.textSize14(
+                                  modle.playerStat![position].rival!,
+                                  Colors.black,
+                                  FontWeight.w500,
                                   "rubikregular",
                                   1),
                             ),

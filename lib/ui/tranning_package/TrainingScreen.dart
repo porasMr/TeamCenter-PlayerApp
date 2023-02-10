@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 import 'package:team_center/ui/managment_instruction_package/managment_instruaction.dart';
+import 'package:team_center/ui/tranning_package/PlanScreen.dart';
 import 'package:team_center/ui/tranning_package/TimeTrainingScreen.dart';
 
 import 'package:team_center/utils/AppColors.dart';
@@ -34,6 +35,9 @@ class _TrainingScreenState extends State<TrainingScreen>
   List<CalendarEvent> events = new List.empty(growable: true);
   var name = "";
   var selectedEvent;
+  var selectedDate;
+  var fromTime;
+  var untilTime;
 
   @override
   void initState() {
@@ -236,212 +240,116 @@ class _TrainingScreenState extends State<TrainingScreen>
                                     eventDate.day == date.day;
                               }).toList();
                               selectedEvent = null;
+                              fromTime = null;
+                              selectedDate = null;
+                              untilTime = null;
                               for (int i = 0; i < events.length; i++) {
                                 if (date == events[i].eventDate) {
                                   showDialog(
                                       context: context,
                                       builder: (_) => AlertDialog(
-                                            elevation: 80,
-                                            backgroundColor: Colors.transparent,
-                                            content: Container(
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(16),
-                                                  color: Colors.white),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.min,
-                                                children: [
-                                                  SizedBox(
-                                                    height: 10,
-                                                  ),
-                                                  Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    children: eventsOnTheDate
-                                                        .map(
-                                                          (event) => InkWell(
-                                                            onTap: () {
-                                                              for (int i = 0;
-                                                                  i <
-                                                                      events
-                                                                          .length;
-                                                                  i++) {
-                                                                if (event.eventDate ==
-                                                                        events[i]
-                                                                            .eventDate &&
-                                                                    event.time ==
-                                                                        events[i]
-                                                                            .time) {
-                                                                  selectedEvent =
-                                                                      events[i]
-                                                                          .eventID;
-                                                                  // Navigator.pop(
-                                                                  //     context);
-
-                                                                  // detailsDiloag(
-                                                                  //     DateFormat(
-                                                                  //             'yyyy-MM-dd')
-                                                                  //         .format(events[
-                                                                  //                 i]
-                                                                  //             .eventDate),
-                                                                  //     events[i].time,
-                                                                  //     events[i]
-                                                                  //         .eventBackgroundColor,
-                                                                  //     events[i]
-                                                                  //         .eventName);
-                                                                  break;
-                                                                }
-                                                              }
-                                                            },
-                                                            child: Stack(
-                                                              children: [
-                                                                Container(
-                                                                  width: MediaQuery.of(
-                                                                          context)
-                                                                      .size
-                                                                      .width,
-                                                                  margin:
-                                                                      EdgeInsets
-                                                                          .all(
-                                                                              10),
-                                                                  child: Row(
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .center,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .center,
-                                                                    children: [
-                                                                      Container(
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(20),
-                                                                          color:
-                                                                              event.eventBackgroundColor,
-                                                                        ),
-                                                                        padding: EdgeInsets.only(
-                                                                            left:
-                                                                                7,
-                                                                            right:
-                                                                                7,
-                                                                            top:
-                                                                                3,
-                                                                            bottom:
-                                                                                3),
-                                                                        child:
-                                                                            Text(
-                                                                          event
-                                                                              .eventName,
-                                                                          style:
-                                                                              TextStyle(
-                                                                            color:
-                                                                                event.eventTextColor,
-                                                                            fontSize:
-                                                                                14,
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                      SizedBox(
-                                                                        width:
-                                                                            5,
-                                                                      ),
-                                                                      Flexible(
-                                                                        child:
-                                                                            Text(
-                                                                          DateFormat('yyyy-MM-dd').format(events[i].eventDate) +
-                                                                              " " +
-                                                                              event.time +
-                                                                              "-" +
-                                                                              event.endTime,
-                                                                          style: TextStyle(
-                                                                              fontSize: 14,
-                                                                              color: Colors.black),
-                                                                          maxLines:
-                                                                              2,
-                                                                        ),
-                                                                      )
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                                // event.clubComment ==
-                                                                //         false
-                                                                //     ? Container()
-                                                                //     : Container(
-                                                                //         width: double
-                                                                //             .infinity,
-                                                                //         height:
-                                                                //             20,
-                                                                //         alignment:
-                                                                //             Alignment.topRight,
-                                                                //         child:
-                                                                //             Container(
-                                                                //           width:
-                                                                //               12,
-                                                                //           height:
-                                                                //               12,
-                                                                //           decoration:
-                                                                //               BoxDecoration(
-                                                                //             shape:
-                                                                //                 BoxShape.circle,
-                                                                //             color:
-                                                                //                 AppColors.defaultAppColor[500],
-                                                                //           ),
-                                                                //         ),
-                                                                //       )
-                                                              ],
+                                            title: Text(
+                                                CommonMethod.monthNameList[
+                                                        date.month - 1] +
+                                                    " " +
+                                                    date.day.toString()),
+                                            content: Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: eventsOnTheDate
+                                                  .map(
+                                                    (event) => InkWell(
+                                                      onTap: () {
+                                                        for (int i = 0;
+                                                            i < events.length;
+                                                            i++) {
+                                                          if (event.eventDate ==
+                                                                  events[i]
+                                                                      .eventDate &&
+                                                              event.time ==
+                                                                  events[i]
+                                                                      .time) {
+                                                            selectedEvent =
+                                                                events[i]
+                                                                    .eventID;
+                                                            selectedDate =
+                                                                events[i]
+                                                                    .eventDate;
+                                                            fromTime =
+                                                                events[i].time;
+                                                            untilTime =
+                                                                events[i]
+                                                                    .endTime;
+                                                            break;
+                                                          }
+                                                        }
+                                                        Navigator.pop(context);
+                                                        Navigator.push(
+                                                            context,
+                                                            PageTransition(
+                                                                type:
+                                                                    PageTransitionType
+                                                                        .fade,
+                                                                child:
+                                                                    PlanScreen(
+                                                                  trainingId:
+                                                                      selectedEvent,
+                                                                  fromTime:
+                                                                      fromTime,
+                                                                  untillTime:
+                                                                      untilTime,
+                                                                ))).then(
+                                                            (value) {});
+                                                      },
+                                                      child: Stack(
+                                                        children: [
+                                                          Container(
+                                                            width:
+                                                                double.infinity,
+                                                            padding:
+                                                                EdgeInsets.all(
+                                                                    4),
+                                                            margin:
+                                                                EdgeInsets.only(
+                                                                    bottom: 12,
+                                                                    top: 4),
+                                                            color: event
+                                                                .eventBackgroundColor,
+                                                            child: Text(
+                                                              event.eventName,
+                                                              style: TextStyle(
+                                                                  color: event
+                                                                      .eventTextColor),
                                                             ),
                                                           ),
-                                                        )
-                                                        .toList(),
-                                                  ),
-                                                  SizedBox(
-                                                    height: 5,
-                                                  ),
-                                                  Container(
-                                                    width: double.infinity,
-                                                    height: 1,
-                                                    color:
-                                                        AppColors.tabGreyColor,
-                                                  ),
-                                                  SizedBox(
-                                                    height: 5,
-                                                  ),
-                                                  InkWell(
-                                                      onTap: () {
-                                                        Navigator.pop(context);
-                                                      },
-                                                      child: Container(
-                                                        width: MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .width /
-                                                                2 -
-                                                            50,
-                                                        alignment:
-                                                            Alignment.center,
-                                                        height: 30,
-                                                        child: Text(
-                                                          TeamCenterLocalizations
-                                                                  .of(context)!
-                                                              .find('close'),
-                                                          textScaleFactor: 1.0,
-                                                          style: TextStyle(
-                                                              fontSize: 16.0,
-                                                              fontFamily:
-                                                                  'rubikregular',
-                                                              color: AppColors
-                                                                  .blue,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .normal),
-                                                        ),
-                                                      )),
-                                                  SizedBox(
-                                                    height: 5,
-                                                  ),
-                                                ],
-                                              ),
+                                                          event.clubComment ==
+                                                                  false
+                                                              ? Container()
+                                                              : Container(
+                                                                  width: double
+                                                                      .infinity,
+                                                                  height: 20,
+                                                                  alignment:
+                                                                      Alignment
+                                                                          .topRight,
+                                                                  child:
+                                                                      Container(
+                                                                    width: 12,
+                                                                    height: 12,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      shape: BoxShape
+                                                                          .circle,
+                                                                      color: AppColors
+                                                                              .defaultAppColor[
+                                                                          500],
+                                                                    ),
+                                                                  ),
+                                                                )
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  )
+                                                  .toList(),
                                             ),
                                           ));
                                   selectedEvent = events[i].eventID;

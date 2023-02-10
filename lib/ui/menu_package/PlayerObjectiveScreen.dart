@@ -309,17 +309,19 @@ class _PlayerObjectiveScreenState extends State<PlayerObjectiveScreen>
                                           SizedBox(
                                             height: 20,
                                           ),
-                                          Flexible(
-                                            flex: 1,
-                                            child:
-                                                AppTextSize.textSizeShortDesc12(
-                                                    model.data![index].goal!
-                                                        .value!,
-                                                    AppColors.selectedGrey,
-                                                    FontWeight.normal,
-                                                    "rubikregular",
-                                                    2),
-                                          ),
+                                          model.data![index].goal!.value == null
+                                              ? Container()
+                                              : Flexible(
+                                                  flex: 1,
+                                                  child: AppTextSize
+                                                      .textSizeShortDesc12WithoutMaxline(
+                                                          model.data![index]
+                                                              .goal!.value!,
+                                                          AppColors
+                                                              .selectedGrey,
+                                                          FontWeight.normal,
+                                                          "rubikregular"),
+                                                ),
                                           SizedBox(
                                             height: 16,
                                           ),

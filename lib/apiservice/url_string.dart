@@ -44,7 +44,7 @@ class UrlConstant {
   static const String addTraining = BaseUrl + "addTraining";
   static const String uploadTrainingImage = BaseUrl + "uploadTrainingImage";
 
-  static const String getTrainingDetail = BaseUrl + "getTrainingDetail";
+  static const String getTrainingDetail = BaseUrl + "TrainingDetail";
 
   static const String updateTrainingAttendance =
       BaseUrl + "updateTrainingAttendance";

@@ -8,6 +8,7 @@ import 'package:syncfusion_flutter_calendar/calendar.dart';
 import 'package:team_center/apiservice/api_call.dart';
 import 'package:team_center/apiservice/api_interface.dart';
 import 'package:team_center/ui/managment_instruction_package/managment_instruaction.dart';
+import 'package:team_center/ui/tranning_package/PlanScreen.dart';
 
 import 'package:team_center/ui/tranning_package/TrainingScreen.dart';
 import 'package:team_center/ui/tranning_package/model/TrainingModel.dart';
@@ -176,7 +177,22 @@ class _TimeTrainingScreenState extends State<TimeTrainingScreen>
                                           DateFormat('HH:mm').format(
                                               v.appointments![0].endTime)) {
                                     setState(() {});
-                                    detailsDiloag(trainingData[i]);
+                                    Navigator.push(
+                                        context,
+                                        PageTransition(
+                                            type: PageTransitionType.fade,
+                                            child: PlanScreen(
+                                              trainingId:
+                                                  trainingData[i].id.toString(),
+                                              date: trainingData[i].date,
+                                              fromTime:
+                                                  trainingData[i].fromTime,
+                                              untillTime:
+                                                  trainingData[i].untillTime,
+                                            ))).then((value) {
+                                      hundler();
+                                      ApiCall.trainingList(this, context);
+                                    });
                                     break;
                                   }
                                 }

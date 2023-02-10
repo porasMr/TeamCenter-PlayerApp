@@ -33,6 +33,7 @@ import '../menu_package/PlayerObjectiveScreen.dart';
 import '../menu_package/account.dart';
 import '../professional_package/ProfessionalDetail.dart';
 import '../professional_package/ProfessionalKnowledagePage.dart';
+import '../tranning_package/PlanScreen.dart';
 import '../tranning_package/TimeTrainingScreen.dart';
 import 'model/HomePageModel.dart';
 
@@ -1116,7 +1117,47 @@ class _HomePageScreenState extends State<HomePageScreen>
                                               Stack(
                                             children: [
                                               InkWell(
-                                                onTap: () {},
+                                                onTap: () {
+                                                  Navigator.push(
+                                                      context,
+                                                      PageTransition(
+                                                          type:
+                                                              PageTransitionType
+                                                                  .fade,
+                                                          child: PlanScreen(
+                                                            trainingId: model
+                                                                .data!
+                                                                .nextTraining![
+                                                                    index]
+                                                                .id
+                                                                .toString(),
+                                                            date: model
+                                                                .data!
+                                                                .nextTraining![
+                                                                    index]
+                                                                .date,
+                                                            fromTime: model
+                                                                .data!
+                                                                .nextTraining![
+                                                                    index]
+                                                                .fromTime,
+                                                            untillTime: model
+                                                                .data!
+                                                                .nextTraining![
+                                                                    index]
+                                                                .untillTime,
+                                                          ))).then((value) {
+                                                    setState(() {
+                                                      CommonMethod
+                                                          .initPlatformState(
+                                                              this);
+
+                                                      hundler();
+                                                      ApiCall.homepageData(
+                                                          this, context);
+                                                    });
+                                                  });
+                                                },
                                                 child: Container(
                                                   height: 125,
                                                   width: 100,
